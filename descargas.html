@@ -128,62 +128,64 @@
     }
   </style>
 </head>
-<!-- VISOR DE IMÁGENES POP-UP -->
-<div id="image-modal" style="display:none; position:fixed; z-index:9999; left:0;top:0;width:100vw;height:100vh;background:rgba(34,34,34,0.92);align-items:center;justify-content:center;">
-  <span id="close-modal" style="position:absolute;top:40px;right:60px;font-size:3.1rem;color:#fff;cursor:pointer;z-index:10001;font-family:'Press Start 2P',monospace;user-select:none;">&times;</span>
-  <img id="modal-img" src="" alt="Esquemático grande" style="max-width:90vw;max-height:86vh;border:7px solid #b8fc26;box-shadow:0 0 44px #000,0 0 0 7px #232323;">
-</div>
-<script>
-  // Clic en miniaturas
-  document.querySelectorAll('.mini-gallery img').forEach(img => {
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', function() {
-      document.getElementById('modal-img').src = this.src;
-      document.getElementById('image-modal').style.display = 'flex';
-    });
-  });
-  // Cerrar modal por la X o por click fuera de la imagen
-  document.getElementById('close-modal').onclick = function() {
-    document.getElementById('image-modal').style.display = 'none';
-    document.getElementById('modal-img').src = '';
-  };
-  document.getElementById('image-modal').onclick = function(e) {
-    if (e.target === this) {
-      document.getElementById('image-modal').style.display = 'none';
-      document.getElementById('modal-img').src = '';
-    }
-  };
-</script>
 <body>
   <header>
     <div class="logo-pixel">3zkMC</div>
     <div style="margin-top:12px;">
-      <a class="back-home" href="index.html">&larr; Back Home</a>
+      <a class="back-home" href="index.html">&larr; Volver al Home</a>
     </div>
   </header>
-  <h1>Download Schematics <span style="color:#397ee7">.nbt</span> for your farms in your world</h1>
+  <h1>Descarga esquemáticos <span style="color:#397ee7">.nbt</span> para tus farms en tu mundo</h1>
 
-<div class="schematics-list">
-  <!-- Diamond Farm Card -->
-  <div class="schematic-card">
-    <div class="mini-gallery">
-      <img src="schematics/diamond_farm_1.png" alt="Diamond Farm - Vista 1">
-      <img src="schematics/diamond_farm_2.png" alt="Diamond Farm - Vista 2">
-      <img src="schematics/diamond_farm_3.png" alt="Diamond Farm - Vista 3">
-      <img src="schematics/diamond_farm_4.png" alt="Diamond Farm - Vista 4">
+  <div class="schematics-list">
+    <!-- Diamond Farm Card -->
+    <div class="schematic-card">
+      <div class="mini-gallery">
+        <img src="schematics/diamond_farm_1.png" alt="Diamond Farm - Vista 1">
+        <img src="schematics/diamond_farm_2.png" alt="Diamond Farm - Vista 2">
+        <img src="schematics/diamond_farm_3.png" alt="Diamond Farm - Vista 3">
+        <img src="schematics/diamond_farm_4.png" alt="Diamond Farm - Vista 4">
+      </div>
+      <h3>Diamond Farm</h3>
+      <a href="schematics/diamond_farm.nbt" download>Descargar .nbt</a>
     </div>
-    <h3>Diamond Farm</h3>
-    <a href="schematics/diamond_farm.nbt" download>Download .nbt</a>
-  </div>
-  <!-- XP Farm Card -->
-  <div class="schematic-card">
-    <div class="mini-gallery">
-      <img src="schematics/xp_farm_1.png" alt="XP Farm - Vista 1">
-      <img src="schematics/xp_farm_2.png" alt="XP Farm - Vista 2">
-      <img src="schematics/xp_farm_3.png" alt="XP Farm - Vista 3">
+    <!-- XP Farm Card -->
+    <div class="schematic-card">
+      <div class="mini-gallery">
+        <img src="schematics/xp_farm_1.png" alt="XP Farm - Vista 1">
+        <img src="schematics/xp_farm_2.png" alt="XP Farm - Vista 2">
+        <img src="schematics/xp_farm_3.png" alt="XP Farm - Vista 3">
+      </div>
+      <h3>XP Farm</h3>
+      <a href="schematics/xp_farm.nbt" download>Descargar .nbt</a>
     </div>
-    <h3>XP Farm</h3>
-    <a href="schematics/xp_farm.nbt" download>Download .nbt</a>
   </div>
-</div>
-  
+
+  <!-- VISOR DE IMÁGENES POP-UP -->
+  <div id="image-modal" style="display:none; position:fixed; z-index:9999; left:0;top:0;width:100vw;height:100vh;background:rgba(34,34,34,0.92);align-items:center;justify-content:center;">
+    <span id="close-modal" style="position:absolute;top:40px;right:60px;font-size:3.1rem;color:#fff;cursor:pointer;z-index:10001;font-family:'Press Start 2P',monospace;user-select:none;">&times;</span>
+    <img id="modal-img" src="" alt="Esquemático grande" style="max-width:90vw;max-height:86vh;border:7px solid #b8fc26;box-shadow:0 0 44px #000,0 0 0 7px #232323;">
+  </div>
+  <script>
+    // Clic en miniaturas
+    document.querySelectorAll('.mini-gallery img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', function() {
+        document.getElementById('modal-img').src = this.src;
+        document.getElementById('image-modal').style.display = 'flex';
+      });
+    });
+    // Cerrar modal por la X o por click fuera de la imagen
+    document.getElementById('close-modal').onclick = function() {
+      document.getElementById('image-modal').style.display = 'none';
+      document.getElementById('modal-img').src = '';
+    };
+    document.getElementById('image-modal').onclick = function(e) {
+      if (e.target === this) {
+        document.getElementById('image-modal').style.display = 'none';
+        document.getElementById('modal-img').src = '';
+      }
+    };
+  </script>
+</body>
+</html>
