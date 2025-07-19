@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Descargas de Esquemáticos Minecraft - 3zkMC</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|IBM+Plex+Mono:700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #7ecaff url('minecraft-bg.svg') repeat;
+      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    }
+    header {
+      padding: 34px 0 16px 0;
+      background: #b8fc26;
+      border-bottom: 6px solid #232323;
+      text-align: center;
+      box-shadow: 0 7px 0 #373737;
+    }
+    .logo-pixel {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 2.1rem;
+      color: #232323;
+      text-shadow: 2px 2px #c2a216, 6px 6px #373737;
+      letter-spacing: 1px;
+    }
+    h1 {
+      font-family: 'Press Start 2P', monospace;
+      text-align: center;
+      font-size: 1.22rem;
+      color: #232323;
+      margin-top: 28px;
+      margin-bottom: 32px;
+      text-shadow: 1px 1px #c2a216;
+      letter-spacing: 1px;
+    }
+    .schematics-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 34px;
+      justify-content: center;
+      margin: 30px auto 60px auto;
+      max-width: 1240px;
+    }
+    .schematic-card {
+      background: #fff;
+      border: 3.5px solid #232323;
+      box-shadow: 9px 9px 0 #b8fc26;
+      border-radius: 16px;
+      padding: 22px 18px 26px 18px;
+      text-align: center;
+      width: 330px;
+      transition: box-shadow 0.15s, transform 0.13s;
+    }
+    .schematic-card:hover {
+      box-shadow: 13px 13px 0 #373737;
+      transform: scale(1.035) rotate(-1deg);
+    }
+    .mini-gallery {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      margin-bottom: 16px;
+      justify-content: center;
+    }
+    .mini-gallery img {
+      width: 96px;
+      height: 96px;
+      border-radius: 7px;
+      object-fit: cover;
+      border: 2px solid #b8fc26;
+      background: #eee;
+      box-shadow: 2px 2px 0 #c2a216;
+    }
+    .schematic-card h3 {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.13rem;
+      color: #232323;
+      margin-bottom: 10px;
+      margin-top: 4px;
+      letter-spacing: 1px;
+    }
+    .schematic-card a {
+      display: inline-block;
+      background: #b8fc26;
+      color: #232323;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.04rem;
+      font-weight: bold;
+      padding: 11px 34px;
+      border: 2.5px solid #232323;
+      border-radius: 8px;
+      box-shadow: 3px 3px 0 #c2a216;
+      text-decoration: none;
+      margin-top: 9px;
+      transition: background 0.19s, color 0.19s, box-shadow 0.18s;
+    }
+    .schematic-card a:hover {
+      background: #c2a216;
+      color: #fff;
+      box-shadow: 8px 8px 0 #373737;
+    }
+    .back-home {
+      display: block;
+      margin: 0 auto 30px auto;
+      width: max-content;
+      background: #232323;
+      color: #fff;
+      font-family: 'IBM Plex Mono', monospace;
+      padding: 11px 30px;
+      border-radius: 9px;
+      border: 2.5px solid #c2a216;
+      box-shadow: 2px 2px 0 #b8fc26;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.17s, color 0.17s;
+    }
+    .back-home:hover {
+      background: #b8fc26;
+      color: #232323;
+    }
+    @media (max-width: 700px) {
+      .schematics-list { flex-direction: column; align-items: center; }
+      .schematic-card { width: 98vw; }
+      .mini-gallery img { width: 28vw; height: 28vw; max-width: 110px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-pixel">3zkMC</div>
+    <div style="margin-top:12px;">
+      <a class="back-home" href="index.html">&larr; Volver al Home</a>
+    </div>
+  </header>
+  <h1>Descarga esquemáticos <span style="color:#397ee7">.nbt</span> para tus máquinas y farms</h1>
+
+  <div class="schematics-list">
+    <!-- Diamond Farm Card -->
+    <div class="schematic-card">
+      <div class="mini-gallery">
+        <img src="esquematicos/diamond_farm_1.png" alt="Diamond Farm - Vista 1">
+        <img src="esquematicos/diamond_farm_2.png" alt="Diamond Farm - Vista 2">
+        <img src="esquematicos/diamond_farm_3.png" alt="Diamond Farm - Vista 3">
+        <img src="esquematicos/diamond_farm_4.png" alt="Diamond Farm - Vista 4">
+      </div>
+      <h3>Diamond Farm</h3>
+      <a href="esquematicos/diamond_farm.nbt" download>Descargar .nbt</a>
+    </div>
+    <!-- XP Farm Card -->
+    <div class="schematic-card">
+      <div class="mini-gallery">
+        <img src="esquematicos/xp_farm_1.png" alt="XP Farm - Vista 1">
+        <img src="esquematicos/xp_farm_2.png" alt="XP Farm - Vista 2">
+        <img src="esquematicos/xp_farm_3.png" alt="XP Farm - Vista 3">
+      </div>
+      <h3>XP Farm</h3>
+      <a href="esquematicos/xp_farm.nbt" download>Descargar .nbt</a>
+    </div>
+  </div>
+</body>
+</html>
