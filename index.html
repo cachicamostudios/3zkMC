@@ -3,9 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>3zkMC Create & ArdaCraft Hub</title>
+  <meta name="description" content="3zkMC: máquinas épicas con Create Mod y construcción en ArdaCraft. Tutoriales, planos NBT y galería de builds con historias detrás de cada proyecto.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" href="favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="3zkMC – Create Mod & ArdaCraft Hub">
+  <meta property="og:description" content="Máquinas épicas con Create Mod y construcción Tolkien-style en ArdaCraft.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/social/og-3zkmc.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|IBM+Plex+Mono:700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -19,243 +25,109 @@
       --white: #fff;
     }
     html, body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       font-family: 'IBM Plex Mono', 'Courier New', monospace;
       background-color: var(--blue-sky);
       background-image: url('minecraft-bg.svg');
       background-repeat: repeat;
       background-size: 420px 420px;
-      min-height: 100vh;
-      box-sizing: border-box;
+      min-height: 100vh; box-sizing: border-box;
     }
     header {
-      padding: 40px 0 16px 0;
-      background: var(--yellow);
-      border-bottom: 7px solid var(--black);
-      text-align: center;
+      padding: 40px 0 16px 0; background: var(--yellow);
+      border-bottom: 7px solid var(--black); text-align: center;
       box-shadow: 0 7px 0 var(--shadow);
     }
     .logo-pixel {
       font-family: 'Press Start 2P', monospace;
-      font-size: 2.2rem;
-      letter-spacing: 1px;
-      color: var(--black);
+      font-size: 2.2rem; letter-spacing: 1px; color: var(--black);
       text-shadow: 2px 2px var(--yellow-dark), 6px 6px var(--shadow);
-      margin-bottom: 12px;
-      display: inline-block;
+      margin-bottom: 12px; display: inline-block;
     }
     .slogan {
-      color: var(--black);
-      font-size: 1.1rem;
-      background: var(--white);
-      display: inline-block;
-      padding: 8px 20px;
-      border-radius: 9px;
-      border: 3px solid var(--black);
-      box-shadow: 2px 2px var(--shadow);
+      color: var(--black); font-size: 1.1rem; background: var(--white);
+      display: inline-block; padding: 8px 20px; border-radius: 9px;
+      border: 3px solid var(--black); box-shadow: 2px 2px var(--shadow);
     }
     nav {
-      margin: 0 auto;
-      max-width: 1100px;
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      padding: 18px 0 12px 0;
-      flex-wrap: wrap;
+      margin: 0 auto; max-width: 1100px; display: flex;
+      justify-content: center; gap: 32px; padding: 18px 0 12px 0; flex-wrap: wrap;
     }
     nav a {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 1.05rem;
-      text-decoration: none;
-      color: var(--black);
-      padding: 7px 24px;
-      border: 3px solid var(--black);
-      background: var(--yellow);
-      box-shadow: 3px 3px var(--yellow-dark);
-      border-radius: 7px;
+      font-family: 'Press Start 2P', monospace; font-size: 1.05rem; text-decoration: none;
+      color: var(--black); padding: 7px 24px; border: 3px solid var(--black);
+      background: var(--yellow); box-shadow: 3px 3px var(--yellow-dark); border-radius: 7px;
       transition: background 0.18s, color 0.18s, box-shadow 0.18s;
     }
-    nav a:hover {
-      background: var(--yellow-dark);
-      color: var(--white);
-      box-shadow: 6px 6px var(--shadow);
-    }
-    .social-btns {
-      margin: 18px 0 30px 0;
-      display: flex;
-      gap: 18px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+    nav a:hover { background: var(--yellow-dark); color: var(--white); box-shadow: 6px 6px 0 var(--shadow); }
+    .social-btns { margin: 18px 0 30px 0; display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
     .social-btns a {
-      display: inline-block;
-      position: relative;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 1.08rem;
-      text-decoration: none;
-      font-weight: bold;
-      letter-spacing: 1.2px;
-      padding: 13px 30px 13px 44px;
-      border-radius: 8px;
-      border: 3px solid var(--black);
-      box-shadow: 5px 5px 0 var(--yellow-dark);
-      color: #fff;
-      transition: background 0.2s, color 0.2s, box-shadow 0.18s;
+      display: inline-block; position: relative; font-family: 'IBM Plex Mono', monospace; font-size: 1.08rem;
+      text-decoration: none; font-weight: bold; letter-spacing: 1.2px; padding: 13px 30px 13px 44px;
+      border-radius: 8px; border: 3px solid var(--black); box-shadow: 5px 5px 0 var(--yellow-dark);
+      color: #fff; transition: background 0.2s, color 0.2s, box-shadow 0.18s;
     }
-    .social-btns a span {
-      font-size: 1.35em;
-      position: absolute;
-      left: 12px;
-      top: 12px;
-      filter: drop-shadow(1px 1px 0 #232323);
-    }
-    .social-btns .youtube {
-      background: #ff0000;
-    }
-    .social-btns .youtube:hover {
-      background: #a50000;
-      color: #ffec40;
-      box-shadow: 9px 9px 0 #232323;
-    }
-    .social-btns .telegram {
-      background: #229ED9;
-    }
-    .social-btns .telegram:hover {
-      background: #165b80;
-      color: #ffec40;
-      box-shadow: 9px 9px 0 #232323;
-    }
-    .social-btns .discord {
-      background: #5865F2;
-    }
-    .social-btns .discord:hover {
-      background: #3b4385;
-      color: #ffec40;
-      box-shadow: 9px 9px 0 #232323;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 34px auto 0 auto;
-      padding: 0 2vw;
-    }
+    .social-btns a span { font-size: 1.35em; position: absolute; left: 12px; top: 12px; filter: drop-shadow(1px 1px 0 #232323); }
+    .social-btns .youtube { background: #ff0000; } .social-btns .youtube:hover { background: #a50000; color: #ffec40; box-shadow: 9px 9px 0 #232323; }
+    .social-btns .telegram { background: #229ED9; } .social-btns .telegram:hover { background: #165b80; color: #ffec40; box-shadow: 9px 9px 0 #232323; }
+    .social-btns .discord { background: #5865F2; } .social-btns .discord:hover { background: #3b4385; color: #ffec40; box-shadow: 9px 9px 0 #232323; }
+
+    .container { max-width: 1200px; margin: 34px auto 0 auto; padding: 0 2vw; }
     .posts-section, .gallery-section { margin-bottom: 40px; }
-    .posts-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 34px;
-    }
+    .posts-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; }
     .posts-col { display: flex; flex-direction: column; gap: 22px; }
     .posts-title {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 1.3rem;
-      color: var(--black);
-      margin-bottom: 14px;
-      text-shadow: 1px 1px var(--yellow-dark);
-      letter-spacing: 1px;
-      text-align: left;
+      font-family: 'Press Start 2P', monospace; font-size: 1.3rem; color: var(--black);
+      margin-bottom: 14px; text-shadow: 1px 1px var(--yellow-dark); letter-spacing: 1px; text-align: left;
     }
     .posts-list-vertical { display: flex; flex-direction: column; gap: 28px; }
     .create-block, .arda-block {
-      border-radius: 18px;
-      padding: 28px 28px 24px 28px;
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
-      position: relative;
-      transition: box-shadow 0.15s, transform 0.15s;
-      min-height: 160px;
-      overflow: hidden;
+      border-radius: 18px; padding: 28px 28px 24px 28px; font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      position: relative; transition: box-shadow 0.15s, transform 0.15s; min-height: 160px; overflow: hidden;
     }
-    .create-block {
-      background: url('data:image/svg+xml;utf8,<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="6" height="6" fill="%23c2a216" /><rect x="6" y="6" width="6" height="6" fill="%23c2a216" /></svg>') repeat, var(--yellow);
-      border: 5px solid var(--black);
-      box-shadow: 12px 12px 0 var(--yellow-dark);
-    }
-    .arda-block {
-      background: url('data:image/svg+xml;utf8,<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="6" height="6" fill="%23397ee7" /><rect x="6" y="6" width="6" height="6" fill="%23397ee7" /></svg>') repeat, var(--arda-main);
-      border: 5px solid var(--black);
-      box-shadow: 12px 12px 0 var(--arda-dark);
-    }
-    .create-block h2, .arda-block h2 {
-      color: var(--black);
-      font-family: 'Press Start 2P', monospace;
-      font-size: 1.15rem;
-      margin-top: 0;
-    }
+    .create-block { background: url('data:image/svg+xml;utf8,<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="6" height="6" fill="%23c2a216" /><rect x="6" y="6" width="6" height="6" fill="%23c2a216" /></svg>') repeat, var(--yellow); border: 5px solid var(--black); box-shadow: 12px 12px 0 var(--yellow-dark); }
+    .arda-block { background: url('data:image/svg+xml;utf8,<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="6" height="6" fill="%23397ee7" /><rect x="6" y="6" width="6" height="6" fill="%23397ee7" /></svg>') repeat, var(--arda-main); border: 5px solid var(--black); box-shadow: 12px 12px 0 var(--arda-dark); }
+    .create-block h2, .arda-block h2 { color: var(--black); font-family: 'Press Start 2P', monospace; font-size: 1.15rem; margin-top: 0; }
     .create-block p, .arda-block p { color: #232323; font-size: 1.05rem; }
     .post-btn {
-      display: inline-block;
-      background: var(--black);
-      color: var(--yellow);
-      border: 3px solid var(--black);
-      padding: 10px 28px;
-      text-decoration: none;
-      font-weight: bold;
-      letter-spacing: 1.2px;
-      border-radius: 0;
-      box-shadow: 3px 3px 0 var(--yellow-dark);
-      transition: background 0.2s, color 0.2s;
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      display: inline-block; background: var(--black); color: var(--yellow); border: 3px solid var(--black);
+      padding: 10px 28px; text-decoration: none; font-weight: bold; letter-spacing: 1.2px; border-radius: 0;
+      box-shadow: 3px 3px 0 var(--yellow-dark); transition: background 0.2s, color 0.2s; font-family: 'IBM Plex Mono', 'Courier New', monospace;
     }
-    .post-btn:hover { background: var(--yellow-dark); color: var(--black); border-color: var(--shadow);}
-    .arda-btn { background: var(--arda-dark); color: #fff; border: 3px solid #232323; box-shadow: 3px 3px 0 #232323;}
-    .arda-btn:hover { background: var(--arda-main); color: #232323; border-color: var(--arda-dark);}
+    .post-btn:hover { background: var(--yellow-dark); color: var(--black); border-color: var(--shadow); }
+    .arda-btn { background: var(--arda-dark); color: #fff; border: 3px solid #232323; box-shadow: 3px 3px 0 #232323; }
+    .arda-btn:hover { background: var(--arda-main); color: #232323; border-color: var(--arda-dark); }
+
     .gallery-title {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 1.2rem;
-      color: var(--black);
-      margin-bottom: 14px;
-      text-shadow: 1px 1px var(--yellow-dark);
+      font-family: 'Press Start 2P', monospace; font-size: 1.2rem; color: var(--black);
+      margin-bottom: 14px; text-shadow: 1px 1px var(--yellow-dark);
     }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
+    .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    figure { margin: 0; }
     .gallery-grid img {
-      width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      border: 4px solid var(--black);
-      box-shadow: 6px 6px 0 var(--yellow-dark);
-      background: #fff;
-      border-radius: 10px;
+      width: 100%; aspect-ratio: 1/1; object-fit: cover; border: 4px solid var(--black);
+      box-shadow: 6px 6px 0 var(--yellow-dark); background: #fff; border-radius: 10px;
       transition: box-shadow 0.15s, transform 0.13s;
     }
-    .arda-col .gallery-grid img { box-shadow: 6px 6px 0 var(--arda-dark);}
-    .gallery-grid img:hover { box-shadow: 10px 10px 0 var(--shadow); transform: scale(1.03) rotate(-2deg);}
+    .gallery-grid a { display: block; }
+    .gallery-grid a:hover img { box-shadow: 10px 10px 0 var(--shadow); transform: scale(1.03) rotate(-2deg); }
+    .arda-col .gallery-grid img { box-shadow: 6px 6px 0 var(--arda-dark); }
+    .caption {
+      display:block; font-size: 0.95rem; margin-top: 8px; color: #232323; background: #fff;
+      border: 2px solid #232323; border-radius: 8px; padding: 8px 10px; box-shadow: 3px 3px 0 #c2a216;
+    }
+
     /* Responsive */
-    @media (max-width: 900px) {
-      .posts-columns { grid-template-columns: 1fr; }
-      .posts-col { margin-bottom: 38px; }
-      .gallery-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 900px) { .posts-columns { grid-template-columns: 1fr; } .posts-col { margin-bottom: 38px; } .gallery-grid { grid-template-columns: 1fr; } }
     footer {
-      padding: 20px 0 36px 0;
-      background: var(--yellow);
-      border-top: 5px solid var(--black);
-      text-align: center;
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
-      color: var(--black);
-      box-shadow: 0 -5px 0 var(--yellow-dark);
-      margin-top: 60px;
+      padding: 20px 0 36px 0; background: var(--yellow); border-top: 5px solid var(--black);
+      text-align: center; font-family: 'IBM Plex Mono', 'Courier New', monospace; color: var(--black);
+      box-shadow: 0 -5px 0 var(--yellow-dark); margin-top: 60px;
     }
-    .footer-links {
-      margin: 12px 0 8px 0;
-      font-size: 1.06rem;
-    }
-    .footer-links a {
-      color: var(--black);
-      text-decoration: none;
-      margin: 0 14px;
-      font-weight: bold;
-      transition: color 0.14s;
-    }
+    .footer-links { margin: 12px 0 8px 0; font-size: 1.06rem; }
+    .footer-links a { color: var(--black); text-decoration: none; margin: 0 14px; font-weight: bold; transition: color 0.14s; }
     .footer-links a:hover { color: var(--shadow); }
-    @media (max-width: 600px) {
-      .container { padding: 0 3vw; }
-      header { padding: 28px 0 9px 0; }
-      .social-btns { flex-direction: column; gap: 14px; }
-    }
+    @media (max-width: 600px) { .container { padding: 0 3vw; } header { padding: 28px 0 9px 0; } .social-btns { flex-direction: column; gap: 14px; } }
   </style>
 </head>
 <body>
@@ -265,29 +137,26 @@
     <span class="slogan">Create Mod & ArdaCraft • Epic Machines</span>
   </header>
 
-  <div class="social-btns">
-    <a href="https://www.youtube.com/@3zkmc" target="_blank" class="youtube">
-      <span>▶️</span>
-      YouTube
+  <div class="social-btns" aria-label="social links">
+    <a href="https://www.youtube.com/@3zkmc" target="_blank" rel="noopener" class="youtube">
+      <span>▶️</span> YouTube
     </a>
-    <a href="https://t.me/+HGBS43P5G34xNGFk" target="_blank" class="telegram">
-      <span>✈️</span>
-      Telegram
+    <a href="https://t.me/+HGBS43P5G34xNGFk" target="_blank" rel="noopener" class="telegram">
+      <span>✈️</span> Telegram
     </a>
-    <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank" class="discord">
-      <span>💬</span>
-      Discord
+    <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank" rel="noopener" class="discord">
+      <span>💬</span> Discord
     </a>
   </div>
 
-  <nav>
+  <nav aria-label="main navigation">
     <a href="#posts">Posts</a>
     <a href="#gallery">Gallery</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
-    <a href="https://www.youtube.com/@3zkmc" target="_blank">YouTube</a>
-    <a href="https://t.me/+HGBS43P5G34xNGFk" target="_blank">Telegram</a>
-    <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank">Discord</a>
+    <a href="https://www.youtube.com/@3zkmc" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://t.me/+HGBS43P5G34xNGFk" target="_blank" rel="noopener">Telegram</a>
+    <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank" rel="noopener">Discord</a>
   </nav>
 
   <div class="container">
@@ -300,12 +169,12 @@
           <div class="posts-list-vertical">
             <div class="create-block">
               <h2>⚙️ Mega Quarry Machine</h2>
-              <p>How to automate massive mining operations with Create Mod. Blueprint, blocks, logic, and speed!</p>
+              <p>Automate massive mining with deployers, drills, and a sequenced gearshift clock. Includes stress budget and throughput tuning.</p>
               <a href="#" class="post-btn">Read More</a>
             </div>
             <div class="create-block">
               <h2>🔧 Flying Contraptions</h2>
-              <p>Everything you need to make your own flying machines in Minecraft Create Mod!</p>
+              <p>From windmill engines to superglued airframes: bearings, chassis, and propulsion logic explained step-by-step.</p>
               <a href="#" class="post-btn">Read More</a>
             </div>
           </div>
@@ -315,12 +184,12 @@
           <div class="posts-list-vertical">
             <div class="arda-block">
               <h2>🏰 Rivendell in Progress</h2>
-              <p>Explore the construction of Rivendell, inspired by Tolkien's vision, block by block!</p>
+              <p>Guided flythrough of terraces, water features, and elven arches. Palette breakdown and reference notes.</p>
               <a href="#" class="post-btn arda-btn">Read More</a>
             </div>
             <div class="arda-block">
               <h2>🌲 Forest Builds</h2>
-              <p>Learn how to design epic forests and Elven realms, with landscaping tips from the ArdaCraft team.</p>
+              <p>Layered canopies, paths, and rocks: composing believable elven forests with custom leaves and ground cover.</p>
               <a href="#" class="post-btn arda-btn">Read More</a>
             </div>
           </div>
@@ -331,44 +200,168 @@
     <!-- GALLERY SECTION -->
     <section id="gallery" class="gallery-section">
       <div class="posts-columns">
+
+        <!-- CREATE MOD GALLERY -->
         <div class="posts-col create-col">
           <div class="gallery-title" style="color:#232323;">🟨 Create Mod Gallery</div>
           <div class="gallery-grid">
-            <img src="create/img1.jpg" alt="Create Machine 1">
-            <img src="create/img2.jpg" alt="Create Machine 2">
+
+            <!-- 🏭 ALL ORES FACTORY -->
+            <figure>
+              <a href="create_machines/All_Ores_Farm_1.png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/All_Ores_Farm_1.png" alt="All Ores Factory: vista interior con lava, cintas y trenes logísticos" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">All Ores Factory (Interior) · Fundición y clasificación automática de todos los minerales.</figcaption>
+            </figure>
+
+            <figure>
+              <a href="create_machines/All_Ores_Farm_3.png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/All_Ores_Farm_3.png" alt="Módulos de fundición con tanques de cobre y líneas verticales" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Módulos de fundición · Control térmico y ensamblaje vertical.</figcaption>
+            </figure>
+
+            <figure>
+              <a href="create_machines/All_Ores_Farm_4.png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/All_Ores_Farm_4.png" alt="Vista lateral de la factoría con pixel art de cubo de lava y trenes" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Transporte inteligente · Trenes sincronizados para carga/descarga continua.</figcaption>
+            </figure>
+
+            <figure>
+              <a href="create_machines/All_Ores_Farm_5.png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/All_Ores_Farm_5.png" alt="Módulo trasero con trituradoras y hornos automatizados" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Núcleo de producción · Triturado y refinamiento continuo.</figcaption>
+            </figure>
+
+            <!-- 🍫 CHOCOLATE FACTORY -->
+            <figure>
+              <a href="create_machines/Chocolate_Factory_1.png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/Chocolate_Factory_1.png" alt="Fachada industrial de la Chocolate Factory con chimeneas humeantes" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Chocolate Factory · Diseño industrial con estética clásica.</figcaption>
+            </figure>
+
+            <figure>
+              <a href="create_machines/Chocolate_Factory_2.png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/Chocolate_Factory_2.png" alt="Jardín interior temático con cerezos rosados y decoración candy" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Jardín interno · Espacio creativo y colorido para explorar.</figcaption>
+            </figure>
+
+            <figure>
+              <a href="create_machines/Chocolate_Factory_3.png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/Chocolate_Factory_3.png" alt="Vista aérea del complejo de fábricas con módulos conectados" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Complejo completo · Fábricas y módulos integrados por logística central.</figcaption>
+            </figure>
+
+            <figure>
+              <a href="create_machines/Chocolate_Factory_4.png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/Chocolate_Factory_4.png" alt="Línea de producción automatizada con maquinaria de Create" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Producción · Máquinas sincronizadas procesan ingredientes sin parar.</figcaption>
+            </figure>
+
+            <figure>
+              <a href="create_machines/Chocolate_Factory_5.png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/Chocolate_Factory_5.png" alt="Zona interior con aldeanos trabajando en estaciones de proceso" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Estaciones de trabajo · Soporte de aldeanos para comercio y upgrades.</figcaption>
+            </figure>
+
+            <figure>
+              <a href="create_machines/Chocolate_Factory_6.png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/Chocolate_Factory_6.png" alt="Tren logístico externo conectando granjas circulares a la fábrica" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Logística exterior · Tren conecta granjas y buffer principal.</figcaption>
+            </figure>
+
+            <!-- 🍯 HONEY FACTORY -->
+            <figure>
+              <a href="create_machines/Honey_Factory_1.png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/Honey_Factory_1.png" alt="Torre de panales y miel en estructura vertical amarilla" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Honey Tower · Almacenamiento vertical de miel y paneles.</figcaption>
+            </figure>
+
+            <figure>
+              <a href="create_machines/Honey_Factory_2.png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/Honey_Factory_2.png" alt="Sala de colmenas con flores y colectores automatizados" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Apiario automatizado · Recolección de miel/panal con flujo constante.</figcaption>
+            </figure>
+
+            <!-- 🔥 NETHERITE FACTORY -->
+            <figure>
+              <a href="create_machines/Netherite%20Factory%20(1).png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/Netherite%20Factory%20(1).png" alt="Netherite Factory: planta interior vista superior con lava lateral" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Netherite Factory · Procesamiento en alta temperatura con seguridad perimetral.</figcaption>
+            </figure>
+
+            <figure>
+              <a href="create_machines/Netherite%20Factory%20(2).png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/Netherite%20Factory%20(2).png" alt="Vista superior del circuito de trituración y refinado de netherite" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Línea de refinado · Triturado, lavado y compactado de netherite scraps.</figcaption>
+            </figure>
+
+            <figure>
+              <a href="create_machines/Netherite%20Factory%20(3).png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/Netherite%20Factory%20(3).png" alt="Techo y chimeneas de la fábrica de netherite con ventilación" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Infraestructura · Techo ventilado y chimeneas para disipación térmica.</figcaption>
+            </figure>
+
+            <figure>
+              <a href="create_machines/Netherite%20Factory%20(4).png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/Netherite%20Factory%20(4).png" alt="Fachada frontal de la Netherite Factory con fuego azul y rojo" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Fachada principal · Entrada técnica y señalización por colores.</figcaption>
+            </figure>
+
+            <figure>
+              <a href="create_machines/Netherite%20Factory%20(5).png" target="_blank" rel="noopener" title="Open image">
+                <img src="create_machines/Netherite%20Factory%20(5).png" alt="Parte trasera con torres y conductos de la fábrica de netherite" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Backline · Torres de servicio y acceso a mantenimiento.</figcaption>
+            </figure>
+
           </div>
         </div>
+
+        <!-- ARDACRAFT GALLERY (placeholder / se mantiene) -->
         <div class="posts-col arda-col">
           <div class="gallery-title" style="color:#232323;">🟦 ArdaCraft Gallery</div>
           <div class="gallery-grid">
-            <img src="ardacraft/img1.jpg" alt="ArdaCraft Build 1">
-            <img src="ardacraft/img2.jpg" alt="ArdaCraft Build 2">
+            <figure>
+              <a href="ardacraft/img1.jpg" target="_blank" rel="noopener" title="Open image">
+                <img src="ardacraft/img1.jpg" alt="ArdaCraft Build 1" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Rivendell · Terrazas y cascadas en piedra clara.</figcaption>
+            </figure>
+            <figure>
+              <a href="ardacraft/img2.jpg" target="_blank" rel="noopener" title="Open image">
+                <img src="ardacraft/img2.jpg" alt="ArdaCraft Build 2" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="caption">Puente élfico · Arco esbelto y barandas orgánicas.</figcaption>
+            </figure>
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- BOTÓN DE DESCARGAS CENTRADO -->
     <div style="text-align:center; margin: 54px 0 40px 0;">
       <a href="descargas.html"
-        style="
-          display:inline-block;
-          background: #b8fc26;
-          color: #232323;
-          font-family: 'Press Start 2P', monospace;
-          font-size: 1.17rem;
-          font-weight: bold;
-          padding: 18px 36px;
-          border: 3.5px solid #232323;
-          border-radius: 13px;
-          box-shadow: 7px 7px 0 #373737;
-          text-decoration: none;
-          letter-spacing: 1.2px;
-          transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-        "
+        style="display:inline-block; background: #b8fc26; color: #232323; font-family: 'Press Start 2P', monospace; font-size: 1.17rem; font-weight: bold; padding: 18px 36px; border: 3.5px solid #232323; border-radius: 13px; box-shadow: 7px 7px 0 #373737; text-decoration: none; letter-spacing: 1.2px; transition: background 0.2s, color 0.2s, box-shadow 0.2s;"
         onmouseover="this.style.background='#c2a216';this.style.color='#fff';this.style.boxShadow='13px 13px 0 #232323';"
         onmouseout="this.style.background='#b8fc26';this.style.color='#232323';this.style.boxShadow='7px 7px 0 #373737';"
       >⬇️ Schematics NBT / Download</a>
+      <p style="margin-top:12px; font-size:0.95rem;">Encuentra los <strong>.nbt</strong> de las máquinas mostradas en la galería.</p>
     </div>
 
     <!-- ABOUT SECTION -->
@@ -386,12 +379,8 @@
         <p>
           🌄 <b>And soon, join us on a new journey inside ArdaCraft</b>, where we help build the world of Tolkien block by block. From dwarven halls to elven cities, you'll witness the art of construction at epic scale — and learn along the way.
         </p>
-        <p>
-          🎙️ Narrated by a young creator, powered by creativity, and built with purpose.
-        </p>
-        <p>
-          <b>Subscribe, explore, and start learning how to build smarter, bigger, and with meaning.</b>
-        </p>
+        <p>🎙️ Narrated by a young creator, powered by creativity, and built with purpose.</p>
+        <p><b>Subscribe, explore, and start learning how to build smarter, bigger, and with meaning.</b></p>
       </div>
     </section>
 
@@ -403,28 +392,14 @@
           Have questions, want to share your build, or collaborate?<br>
           <b>Email:</b> <a href="mailto:hello@3zkmc.com" style="color:#232323;">hello@3zkmc.com</a><br>
           <a href="mailto:hello@3zkmc.com"
-             style="
-               display:inline-block;
-               margin-top:12px;
-               padding:12px 32px;
-               background:#b8fc26;
-               color:#232323;
-               font-family:'IBM Plex Mono','Courier New',monospace;
-               font-weight:bold;
-               border:3px solid #232323;
-               border-radius:8px;
-               box-shadow: 3px 3px 0 #c2a216;
-               text-decoration:none;
-               font-size:1.1rem;
-               transition:background 0.18s, color 0.18s, box-shadow 0.18s;
-             "
+             style="display:inline-block; margin-top:12px; padding:12px 32px; background:#b8fc26; color:#232323; font-family:'IBM Plex Mono','Courier New',monospace; font-weight:bold; border:3px solid #232323; border-radius:8px; box-shadow: 3px 3px 0 #c2a216; text-decoration:none; font-size:1.1rem; transition:background 0.18s, color 0.18s, box-shadow 0.18s;"
              onmouseover="this.style.background='#c2a216';this.style.color='#fff';this.style.boxShadow='6px 6px 0 #232323';"
              onmouseout="this.style.background='#b8fc26';this.style.color='#232323';this.style.boxShadow='3px 3px 0 #c2a216';"
           >Contact us</a>
           <br><br>
-          <b>YouTube:</b> <a href="https://www.youtube.com/@3zkmc" style="color:#232323;" target="_blank">3zkMC on YouTube</a><br>
-          <b>Telegram:</b> <a href="https://t.me/+HGBS43P5G34xNGFk" style="color:#232323;" target="_blank">Join our channel</a><br>
-          <b>Discord:</b> <a href="https://discord.gg/Hcuw2cqkdJ" style="color:#232323;" target="_blank">Join our server</a>
+          <b>YouTube:</b> <a href="https://www.youtube.com/@3zkmc" style="color:#232323;" target="_blank" rel="noopener">3zkMC on YouTube</a><br>
+          <b>Telegram:</b> <a href="https://t.me/+HGBS43P5G34xNGFk" style="color:#232323;" target="_blank" rel="noopener">Join our channel</a><br>
+          <b>Discord:</b> <a href="https://discord.gg/Hcuw2cqkdJ" style="color:#232323;" target="_blank" rel="noopener">Join our server</a>
         </p>
       </div>
     </section>
@@ -433,14 +408,12 @@
 
   <footer>
     <div class="footer-links">
-      <a href="https://www.youtube.com/@3zkmc" target="_blank">YouTube</a> •
-      <a href="https://t.me/+HGBS43P5G34xNGFk" target="_blank">Telegram</a> •
-      <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank">Discord</a> •
+      <a href="https://www.youtube.com/@3zkmc" target="_blank" rel="noopener">YouTube</a> •
+      <a href="https://t.me/+HGBS43P5G34xNGFk" target="_blank" rel="noopener">Telegram</a> •
+      <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank" rel="noopener">Discord</a> •
       <a href="#about">About</a>
     </div>
-    <div>
-      <b>3zkMC</b> &copy; 2025 • Crafted with GRIT & Pixel Art
-    </div>
+    <div><b>3zkMC</b> &copy; 2025 • Crafted with GRIT & Pixel Art</div>
   </footer>
 
 </body>
