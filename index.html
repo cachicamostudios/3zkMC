@@ -18,18 +18,18 @@
       --yellow:#ffec40;--yellow-dark:#c2a216;--black:#232323;--shadow:#373737;
       --blue-sky:#7ecaff;--arda-main:#8dc4ff;--arda-dark:#397ee7;--white:#fff
     }
-    html,body{margin:0;padding:0;font-family:'IBM Plex Mono','Courier New',monospace;
-      background:var(--blue-sky) url('minecraft-bg.svg') repeat;background-size:420px 420px;min-height:100vh}
+    html,body{
+      margin:0;padding:0;font-family:'IBM Plex Mono','Courier New',monospace;
+      background:var(--blue-sky) url('minecraft-bg.svg') repeat;background-size:420px 420px;min-height:100vh
+    }
     header{padding:40px 0 16px;background:var(--yellow);border-bottom:7px solid var(--black);text-align:center;box-shadow:0 7px 0 var(--shadow)}
-    .logo-pixel{font-family:'Press Start 2P',monospace;font-size:2.2rem;letter-spacing:1px;color:var(--black);
-      text-shadow:2px 2px var(--yellow-dark),6px 6px var(--shadow);margin-bottom:12px;display:inline-block}
+    .logo-pixel{font-family:'Press Start 2P',monospace;font-size:2.2rem;letter-spacing:1px;color:var(--black);text-shadow:2px 2px var(--yellow-dark),6px 6px var(--shadow);margin-bottom:12px;display:inline-block}
     .slogan{color:var(--black);font-size:1.1rem;background:var(--white);display:inline-block;padding:8px 20px;border-radius:9px;border:3px solid var(--black);box-shadow:2px 2px var(--shadow)}
     nav{margin:0 auto;max-width:1100px;display:flex;justify-content:center;gap:32px;padding:18px 0 12px;flex-wrap:wrap}
     nav a{font-family:'Press Start 2P',monospace;font-size:1.05rem;text-decoration:none;color:var(--black);padding:7px 24px;border:3px solid var(--black);background:var(--yellow);box-shadow:3px 3px var(--yellow-dark);border-radius:7px;transition:.18s}
     nav a:hover{background:var(--yellow-dark);color:#fff;box-shadow:6px 6px 0 var(--shadow)}
     .social-btns{margin:18px 0 30px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
-    .social-btns a{position:relative;display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:700;letter-spacing:1.2px;
-      padding:13px 30px 13px 44px;border-radius:8px;border:3px solid var(--black);box-shadow:5px 5px 0 var(--yellow-dark);color:#fff;transition:.18s}
+    .social-btns a{position:relative;display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:700;letter-spacing:1.2px;padding:13px 30px 13px 44px;border-radius:8px;border:3px solid var(--black);box-shadow:5px 5px 0 var(--yellow-dark);color:#fff;transition:.18s}
     .social-btns a span{font-size:1.35em;position:absolute;left:12px;top:12px;filter:drop-shadow(1px 1px 0 #232323)}
     .youtube{background:#ff0000}.youtube:hover{background:#a50000;color:#ffec40;box-shadow:9px 9px 0 #232323}
     .telegram{background:#229ED9}.telegram:hover{background:#165b80;color:#ffec40;box-shadow:9px 9px 0 #232323}
@@ -40,29 +40,23 @@
     .posts-columns{display:grid;grid-template-columns:1fr 1fr;gap:34px}
     .posts-col{display:flex;flex-direction:column;gap:22px}
     .posts-title{font-family:'Press Start 2P',monospace;font-size:1.3rem;color:var(--black);margin-bottom:14px;text-shadow:1px 1px var(--yellow-dark);letter-spacing:1px}
-
     .create-block,.arda-block{border-radius:18px;padding:28px 28px 24px;font-family:'IBM Plex Mono','Courier New',monospace;min-height:160px;border:5px solid var(--black)}
     .create-block{background:url('data:image/svg+xml;utf8,<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><rect width="6" height="6" fill="%23c2a216"/><rect x="6" y="6" width="6" height="6" fill="%23c2a216"/></svg>') repeat var(--yellow);box-shadow:12px 12px 0 var(--yellow-dark)}
     .arda-block{background:url('data:image/svg+xml;utf8,<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><rect width="6" height="6" fill="%23397ee7"/><rect x="6" y="6" width="6" height="6" fill="%23397ee7"/></svg>') repeat var(--arda-main);box-shadow:12px 12px 0 var(--arda-dark)}
     .create-block h2,.arda-block h2{font-family:'Press Start 2P',monospace;font-size:1.15rem;margin:0;color:var(--black)}
-
-    /* ======= NUEVA GALERÍA TIPO “DESCARGAS” ======= */
-    .gallery-cards{display:flex;flex-wrap:wrap;gap:24px;justify-content:center}
-    .image-card{width:340px;background:#fff;border:3.5px solid var(--black);border-radius:16px;box-shadow:9px 9px 0 var(--yellow-dark);
-      padding:16px 16px 18px;text-align:center;transition:box-shadow .15s,transform .13s}
-    .image-card:hover{box-shadow:13px 13px 0 var(--shadow);transform:scale(1.03) rotate(-1deg)}
-    .thumb-wrap{position:relative;width:100%;aspect-ratio:1/1;border-radius:12px;overflow:hidden;border:3px solid var(--black);background:#eee}
-    .thumb-wrap img{width:100%;height:100%;object-fit:cover;display:block}
-    .image-card a{display:block}
-    .desc{margin:10px 6px 2px;color:#232323;font-size:0.98rem}
-    .desc small{opacity:.85}
-    /* ============================================= */
+    .post-btn{display:inline-block;background:var(--black);color:var(--yellow);border:3px solid var(--black);padding:10px 28px;text-decoration:none;font-weight:bold;letter-spacing:1.2px;border-radius:0;box-shadow:3px 3px 0 var(--yellow-dark);transition:.2s}
+    .post-btn:hover{background:var(--yellow-dark);color:var(--black);border-color:var(--shadow)}
+    .arda-btn{background:var(--arda-dark);color:#fff;border:3px solid #232323;box-shadow:3px 3px 0 #232323}.arda-btn:hover{background:var(--arda-main);color:#232323;border-color:var(--arda-dark)}
 
     .gallery-title{font-family:'Press Start 2P',monospace;font-size:1.2rem;color:var(--black);margin:6px 0 16px;text-shadow:1px 1px var(--yellow-dark)}
 
+    /* botón a la página de fábricas */
+    .btn-factories{display:inline-block;background:#b8fc26;color:#232323;font-family:'Press Start 2P',monospace;font-size:1.05rem;font-weight:bold;padding:14px 26px;border:3px solid #232323;border-radius:12px;box-shadow:6px 6px 0 #373737;text-decoration:none;letter-spacing:1.1px;transition:.18s}
+    .btn-factories:hover{background:#c2a216;color:#fff;box-shadow:10px 10px 0 #232323}
+
     /* Responsive */
     @media (max-width:900px){.posts-columns{grid-template-columns:1fr}}
-    @media (max-width:600px){.container{padding:0 3vw}header{padding:28px 0 9px}.image-card{width:96vw;max-width:360px}}
+    @media (max-width:600px){.container{padding:0 3vw}header{padding:28px 0 9px}}
     footer{padding:20px 0 36px;background:var(--yellow);border-top:5px solid var(--black);text-align:center;color:var(--black);box-shadow:0 -5px 0 var(--yellow-dark);margin-top:60px}
     .footer-links{margin:12px 0 8px;font-size:1.06rem}
     .footer-links a{color:var(--black);text-decoration:none;margin:0 14px;font-weight:bold;transition:color .14s}
@@ -127,159 +121,27 @@
       </div>
     </section>
 
-    <!-- GALERÍA -->
+    <!-- GALERÍA: botón hacia la página dedicada -->
     <section id="gallery" class="gallery-section">
       <div class="posts-columns">
-        <!-- CREATE MOD -->
         <div class="posts-col create-col">
-          <div class="gallery-title">🟨 Create Mod Gallery</div>
-          <div class="gallery-cards">
-
-            <!-- ALL ORES FACTORY -->
-            <div class="image-card">
-              <a href="create_machines/All_Ores_Farm_1.png" target="_blank" rel="noopener" class="thumb-wrap" title="Abrir imagen">
-                <img src="create_machines/All_Ores_Farm_1.png" alt="All Ores Factory interior con lava y cintas">
-              </a>
-              <p class="desc"><small><!-- Descripción -->All Ores Factory (interior).</small></p>
-            </div>
-
-            <div class="image-card">
-              <a href="create_machines/All_Ores_Farm_3.png" target="_blank" rel="noopener" class="thumb-wrap" title="Abrir imagen">
-                <img src="create_machines/All_Ores_Farm_3.png" alt="Módulos de fundición con tanques de cobre">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Módulos de fundición.</small></p>
-            </div>
-
-            <div class="image-card">
-              <a href="create_machines/All_Ores_Farm_4.png" target="_blank" rel="noopener" class="thumb-wrap" title="Abrir imagen">
-                <img src="create_machines/All_Ores_Farm_4.png" alt="Vista lateral con pixel art de cubo de lava">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Transporte inteligente con trenes.</small></p>
-            </div>
-
-            <div class="image-card">
-              <a href="create_machines/All_Ores_Farm_5.png" target="_blank" rel="noopener" class="thumb-wrap" title="Abrir imagen">
-                <img src="create_machines/All_Ores_Farm_5.png" alt="Módulo trasero con trituración y hornos">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Núcleo de producción.</small></p>
-            </div>
-
-            <!-- CHOCOLATE FACTORY -->
-            <div class="image-card">
-              <a href="create_machines/Chocolate_Factory_1.png" target="_blank" rel="noopener" class="thumb-wrap">
-                <img src="create_machines/Chocolate_Factory_1.png" alt="Fachada de Chocolate Factory con chimeneas">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Chocolate Factory (fachada).</small></p>
-            </div>
-
-            <div class="image-card">
-              <a href="create_machines/Chocolate_Factory_2.png" target="_blank" rel="noopener" class="thumb-wrap">
-                <img src="create_machines/Chocolate_Factory_2.png" alt="Jardín interior temático">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Jardín interno.</small></p>
-            </div>
-
-            <div class="image-card">
-              <a href="create_machines/Chocolate_Factory_3.png" target="_blank" rel="noopener" class="thumb-wrap">
-                <img src="create_machines/Chocolate_Factory_3.png" alt="Vista aérea del complejo de fábricas">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Complejo completo.</small></p>
-            </div>
-
-            <div class="image-card">
-              <a href="create_machines/Chocolate_Factory_4.png" target="_blank" rel="noopener" class="thumb-wrap">
-                <img src="create_machines/Chocolate_Factory_4.png" alt="Línea de producción automatizada">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Línea de producción.</small></p>
-            </div>
-
-            <div class="image-card">
-              <a href="create_machines/Chocolate_Factory_5.png" target="_blank" rel="noopener" class="thumb-wrap">
-                <img src="create_machines/Chocolate_Factory_5.png" alt="Zona interior con aldeanos">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Estaciones de trabajo.</small></p>
-            </div>
-
-            <div class="image-card">
-              <a href="create_machines/Chocolate_Factory_6.png" target="_blank" rel="noopener" class="thumb-wrap">
-                <img src="create_machines/Chocolate_Factory_6.png" alt="Tren logístico conectando granjas">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Logística exterior.</small></p>
-            </div>
-
-            <!-- HONEY FACTORY -->
-            <div class="image-card">
-              <a href="create_machines/Honey_Factory_1.png" target="_blank" rel="noopener" class="thumb-wrap">
-                <img src="create_machines/Honey_Factory_1.png" alt="Torre de miel y panales">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Honey Tower.</small></p>
-            </div>
-
-            <div class="image-card">
-              <a href="create_machines/Honey_Factory_2.png" target="_blank" rel="noopener" class="thumb-wrap">
-                <img src="create_machines/Honey_Factory_2.png" alt="Apiario automatizado con flores">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Apiario automatizado.</small></p>
-            </div>
-
-            <!-- NETHERITE FACTORY -->
-            <div class="image-card">
-              <a href="create_machines/Netherite%20Factory%20(1).png" target="_blank" rel="noopener" class="thumb-wrap">
-                <img src="create_machines/Netherite%20Factory%20(1).png" alt="Planta interior con lava lateral">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Netherite Factory (interior 1).</small></p>
-            </div>
-
-            <div class="image-card">
-              <a href="create_machines/Netherite%20Factory%20(2).png" target="_blank" rel="noopener" class="thumb-wrap">
-                <img src="create_machines/Netherite%20Factory%20(2).png" alt="Circuito de trituración y refinado">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Netherite Factory (interior 2).</small></p>
-            </div>
-
-            <div class="image-card">
-              <a href="create_machines/Netherite%20Factory%20(3).png" target="_blank" rel="noopener" class="thumb-wrap">
-                <img src="create_machines/Netherite%20Factory%20(3).png" alt="Techo ventilado y chimeneas">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Infraestructura y ventilación.</small></p>
-            </div>
-
-            <div class="image-card">
-              <a href="create_machines/Netherite%20Factory%20(4).png" target="_blank" rel="noopener" class="thumb-wrap">
-                <img src="create_machines/Netherite%20Factory%20(4).png" alt="Fachada con fuego azul y rojo">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Fachada principal.</small></p>
-            </div>
-
-            <div class="image-card">
-              <a href="create_machines/Netherite%20Factory%20(5).png" target="_blank" rel="noopener" class="thumb-wrap">
-                <img src="create_machines/Netherite%20Factory%20(5).png" alt="Parte trasera con torres de servicio">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Backline y mantenimiento.</small></p>
-            </div>
-
+          <div class="gallery-title" style="color:#232323;">🟨 Create Mod Gallery</div>
+          <div style="text-align:center; margin: 10px 0 24px;">
+            <a class="btn-factories" href="factories.html">🔍 Ver todas las fábricas</a>
           </div>
+          <p style="text-align:center;opacity:.85;margin:0 14px;">
+            Explora los proyectos completos en la página de fábricas. Cada tarjeta abre un visor a pantalla completa.
+          </p>
         </div>
 
-        <!-- ARDACRAFT (placeholder) -->
+        <!-- Puedes mantener esta columna de ArdaCraft o esconderla -->
         <div class="posts-col arda-col">
-          <div class="gallery-title">🟦 ArdaCraft Gallery</div>
-          <div class="gallery-cards">
-            <div class="image-card">
-              <a href="ardacraft/img1.jpg" target="_blank" rel="noopener" class="thumb-wrap">
-                <img src="ardacraft/img1.jpg" alt="ArdaCraft build 1">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Rivendell – terrazas y cascadas.</small></p>
-            </div>
-            <div class="image-card">
-              <a href="ardacraft/img2.jpg" target="_blank" rel="noopener" class="thumb-wrap">
-                <img src="ardacraft/img2.jpg" alt="ArdaCraft build 2">
-              </a>
-              <p class="desc"><small><!-- Descripción -->Puente élfico.</small></p>
-            </div>
+          <div class="gallery-title" style="color:#232323;">🟦 ArdaCraft Gallery</div>
+          <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center">
+            <img src="ardacraft/img1.jpg" alt="ArdaCraft Build 1" style="width:320px;aspect-ratio:1/1;object-fit:cover;border:4px solid #232323;border-radius:10px;box-shadow:6px 6px 0 #397ee7">
+            <img src="ardacraft/img2.jpg" alt="ArdaCraft Build 2" style="width:320px;aspect-ratio:1/1;object-fit:cover;border:4px solid #232323;border-radius:10px;box-shadow:6px 6px 0 #397ee7">
           </div>
         </div>
-
       </div>
     </section>
 
@@ -340,4 +202,3 @@
 
 </body>
 </html>
-
