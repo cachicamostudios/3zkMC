@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Fábricas Create Mod – 3zkMC</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|IBM+Plex+Mono:700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --yellow:#ffec40;--yellow-dark:#c2a216;--black:#232323;--shadow:#373737;--blue:#7ecaff;
+    }
+    body{margin:0;background:var(--blue) url('minecraft-bg.svg') repeat;font-family:'IBM Plex Mono','Courier New',monospace}
+    header{padding:34px 0 16px;background:#b8fc26;border-bottom:6px solid var(--black);text-align:center;box-shadow:0 7px 0 #373737}
+    .logo-pixel{font-family:'Press Start 2P',monospace;font-size:2.1rem;color:#232323;text-shadow:2px 2px #c2a216,6px 6px #373737;letter-spacing:1px}
+    .back-home{display:inline-block;margin-top:12px;background:#232323;color:#fff;padding:11px 30px;border-radius:9px;border:2.5px solid #c2a216;box-shadow:2px 2px 0 #b8fc26;text-decoration:none;font-weight:bold;transition:.17s}
+    .back-home:hover{background:#b8fc26;color:#232323}
+    h1{font-family:'Press Start 2P',monospace;text-align:center;font-size:1.22rem;color:#232323;margin:28px 0 18px;text-shadow:1px 1px #c2a216}
+    .subtitle{ text-align:center; margin:0 0 28px; opacity:.9 }
+
+    .cards{display:flex;flex-wrap:wrap;gap:34px;justify-content:center;margin:0 auto 70px;max-width:1240px}
+    .card{background:#fff;border:3.5px solid #232323;box-shadow:9px 9px 0 #b8fc26;border-radius:16px;padding:18px 18px 22px;width:330px;transition:box-shadow .15s,transform .13s}
+    .card:hover{box-shadow:13px 13px 0 #373737;transform:scale(1.03) rotate(-1deg)}
+    .card h3{font-family:'Press Start 2P',monospace;font-size:1.05rem;color:#232323;margin:6px 0 10px;letter-spacing:1px}
+
+    .mini-gallery{display:flex;gap:10px;overflow-x:auto;margin-bottom:14px;justify-content:flex-start;padding-bottom:4px}
+    .mini-gallery img{width:96px;height:96px;border-radius:7px;object-fit:cover;border:2px solid #b8fc26;background:#eee;box-shadow:2px 2px 0 #c2a216;cursor:zoom-in}
+    .desc{font-size:.96rem;color:#232323;min-height:1.2em}
+
+    /* Modal */
+    #image-modal{display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(34,34,34,.92);align-items:center;justify-content:center}
+    #image-modal img{max-width:90vw;max-height:86vh;border:7px solid #b8fc26;box-shadow:0 0 44px #000,0 0 0 7px #232323;background:#000}
+    #close-modal{position:absolute;top:40px;right:60px;font-size:3.1rem;color:#fff;cursor:pointer;z-index:10001;font-family:'Press Start 2P',monospace;user-select:none}
+    @media (max-width:700px){.card{width:98vw}.mini-gallery img{width:28vw;height:28vw;max-width:110px}}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-pixel">3zkMC</div>
+  <div style="margin-top:12px;">
+    <a class="back-home" href="index.html">&larr; Back Home</a>
+  </div>
+</header>
+
+<h1>Fábricas Create Mod</h1>
+<p class="subtitle">Haz clic en cualquier miniatura para verla en pantalla completa.</p>
+
+<div class="cards">
+
+  <!-- ALL ORES FACTORY -->
+  <div class="card">
+    <h3>All Ores Factory</h3>
+    <div class="mini-gallery">
+      <img src="create_machines/All_Ores_Farm_1.png" alt="All Ores 1" data-full="create_machines/All_Ores_Farm_1.png">
+      <img src="create_machines/All_Ores_Farm_3.png" alt="All Ores 3" data-full="create_machines/All_Ores_Farm_3.png">
+      <img src="create_machines/All_Ores_Farm_4.png" alt="All Ores 4" data-full="create_machines/All_Ores_Farm_4.png">
+      <img src="create_machines/All_Ores_Farm_5.png" alt="All Ores 5" data-full="create_machines/All_Ores_Farm_5.png">
+    </div>
+    <p class="desc"><!-- descripción opcional --></p>
+  </div>
+
+  <!-- CHOCOLATE FACTORY -->
+  <div class="card">
+    <h3>Chocolate Factory</h3>
+    <div class="mini-gallery">
+      <img src="create_machines/Chocolate_Factory_1.png" alt="Chocolate 1" data-full="create_machines/Chocolate_Factory_1.png">
+      <img src="create_machines/Chocolate_Factory_2.png" alt="Chocolate 2" data-full="create_machines/Chocolate_Factory_2.png">
+      <img src="create_machines/Chocolate_Factory_3.png" alt="Chocolate 3" data-full="create_machines/Chocolate_Factory_3.png">
+      <img src="create_machines/Chocolate_Factory_4.png" alt="Chocolate 4" data-full="create_machines/Chocolate_Factory_4.png">
+      <img src="create_machines/Chocolate_Factory_5.png" alt="Chocolate 5" data-full="create_machines/Chocolate_Factory_5.png">
+      <img src="create_machines/Chocolate_Factory_6.png" alt="Chocolate 6" data-full="create_machines/Chocolate_Factory_6.png">
+    </div>
+    <p class="desc"><!-- descripción opcional --></p>
+  </div>
+
+  <!-- HONEY FACTORY -->
+  <div class="card">
+    <h3>Honey Factory</h3>
+    <div class="mini-gallery">
+      <img src="create_machines/Honey_Factory_1.png" alt="Honey 1" data-full="create_machines/Honey_Factory_1.png">
+      <img src="create_machines/Honey_Factory_2.png" alt="Honey 2" data-full="create_machines/Honey_Factory_2.png">
+    </div>
+    <p class="desc"><!-- descripción opcional --></p>
+  </div>
+
+  <!-- NETHERITE FACTORY (con espacios en el nombre) -->
+  <div class="card">
+    <h3>Netherite Factory</h3>
+    <div class="mini-gallery">
+      <img src="create_machines/Netherite%20Factory%20(1).png" alt="Netherite 1" data-full="create_machines/Netherite%20Factory%20(1).png">
+      <img src="create_machines/Netherite%20Factory%20(2).png" alt="Netherite 2" data-full="create_machines/Netherite%20Factory%20(2).png">
+      <img src="create_machines/Netherite%20Factory%20(3).png" alt="Netherite 3" data-full="create_machines/Netherite%20Factory%20(3).png">
+      <img src="create_machines/Netherite%20Factory%20(4).png" alt="Netherite 4" data-full="create_machines/Netherite%20Factory%20(4).png">
+      <img src="create_machines/Netherite%20Factory%20(5).png" alt="Netherite 5" data-full="create_machines/Netherite%20Factory%20(5).png">
+    </div>
+    <p class="desc"><!-- descripción opcional --></p>
+  </div>
+
+</div>
+
+<!-- VISOR DE IMÁGENES POP-UP -->
+<div id="image-modal">
+  <span id="close-modal">&times;</span>
+  <img id="modal-img" src="" alt="Vista ampliada">
+</div>
+
+<script>
+  // abrir visor
+  document.querySelectorAll('.mini-gallery img').forEach(img => {
+    img.addEventListener('click', () => {
+      const src = img.dataset.full || img.src;
+      const modal = document.getElementById('image-modal');
+      const modalImg = document.getElementById('modal-img');
+      modalImg.src = src;
+      modal.style.display = 'flex';
+    });
+  });
+  // cerrar visor
+  document.getElementById('close-modal').onclick = () => {
+    const modal = document.getElementById('image-modal');
+    document.getElementById('modal-img').src = '';
+    modal.style.display = 'none';
+  };
+  document.getElementById('image-modal').onclick = (e) => {
+    if (e.target.id === 'image-modal') {
+      document.getElementById('modal-img').src = '';
+      e.currentTarget.style.display = 'none';
+    }
+  };
+</script>
+
+</body>
+</html>
