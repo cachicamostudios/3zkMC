@@ -256,28 +256,51 @@
   <!-- VISOR DE IMÁGENES POP-UP -->
   <div id="image-modal" style="display:none; position:fixed; z-index:9999; left:0;top:0;width:100vw;height:100vh;background:rgba(34,34,34,0.92);align-items:center;justify-content:center;">
     <span id="close-modal" style="position:absolute;top:40px;right:60px;font-size:3.1rem;color:#fff;cursor:pointer;z-index:10001;font-family:'Press Start 2P',monospace;user-select:none;">&times;</span>
+    <button id="modal-prev" style="position:absolute;top:50%;left:24px;transform:translateY(-50%);font-size:3rem;color:#fff;cursor:pointer;z-index:10001;background:rgba(0,0,0,.45);border:none;padding:10px 18px;border-radius:8px;user-select:none;transition:background .15s" onmouseover="this.style.background='rgba(184,252,38,.7)';this.style.color='#232323'" onmouseout="this.style.background='rgba(0,0,0,.45)';this.style.color='#fff'">&#8592;</button>
     <img id="modal-img" src="" alt="Esquemático grande" style="max-width:90vw;max-height:86vh;border:7px solid #b8fc26;box-shadow:0 0 44px #000,0 0 0 7px #232323;">
+    <button id="modal-next" style="position:absolute;top:50%;right:24px;transform:translateY(-50%);font-size:3rem;color:#fff;cursor:pointer;z-index:10001;background:rgba(0,0,0,.45);border:none;padding:10px 18px;border-radius:8px;user-select:none;transition:background .15s" onmouseover="this.style.background='rgba(184,252,38,.7)';this.style.color='#232323'" onmouseout="this.style.background='rgba(0,0,0,.45)';this.style.color='#fff'">&#8594;</button>
+    <div id="modal-counter" style="position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:#fff;font-family:'Press Start 2P',monospace;font-size:.75rem;opacity:.85;pointer-events:none"></div>
   </div>
   <script>
-    // Clic en miniaturas
+    const allImgs = [];
     document.querySelectorAll('.mini-gallery img').forEach(img => {
       img.style.cursor = 'zoom-in';
-      img.addEventListener('click', function() {
-        document.getElementById('modal-img').src = this.src;
-        document.getElementById('image-modal').style.display = 'flex';
-      });
+      allImgs.push(img);
     });
-    // Cerrar modal por la X o por click fuera de la imagen
+
+    let currentIdx = 0;
+    const modal    = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    const counter  = document.getElementById('modal-counter');
+
+    function openModal(idx) {
+      currentIdx = idx;
+      modalImg.src = allImgs[idx].src;
+      counter.textContent = (idx+1) + ' / ' + allImgs.length;
+      modal.style.display = 'flex';
+    }
+    function showPrev() { openModal((currentIdx - 1 + allImgs.length) % allImgs.length); }
+    function showNext() { openModal((currentIdx + 1) % allImgs.length); }
+
+    allImgs.forEach((img, i) => img.addEventListener('click', () => openModal(i)));
+
+    document.getElementById('modal-prev').addEventListener('click', e => { e.stopPropagation(); showPrev(); });
+    document.getElementById('modal-next').addEventListener('click', e => { e.stopPropagation(); showNext(); });
+
     document.getElementById('close-modal').onclick = function() {
-      document.getElementById('image-modal').style.display = 'none';
-      document.getElementById('modal-img').src = '';
+      modal.style.display = 'none';
     };
-    document.getElementById('image-modal').onclick = function(e) {
-      if (e.target === this) {
-        document.getElementById('image-modal').style.display = 'none';
-        document.getElementById('modal-img').src = '';
-      }
+    modal.onclick = function(e) {
+      if (e.target === modal) modal.style.display = 'none';
     };
+
+    // Navegación con teclado
+    document.addEventListener('keydown', e => {
+      if (modal.style.display !== 'flex') return;
+      if (e.key === 'ArrowLeft')  showPrev();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'Escape')     modal.style.display = 'none';
+    });
   </script>
 </body>
 </html>
