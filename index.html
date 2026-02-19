@@ -1,184 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>3zkMC Create & ArdaCraft Hub</title>
-  <meta name="description" content="3zkMC: epic Create Mod machines and ArdaCraft builds. Tutorials, NBT blueprints, and galleries." />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta property="og:title" content="3zkMC – Create Mod & ArdaCraft Hub" />
-  <meta property="og:description" content="Create Mod automation and Tolkien-scale builds in ArdaCraft." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/social/og-3zkmc.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|IBM+Plex+Mono:700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <title>3zkMC — Create Mod & Project Sphere</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|IBM+Plex+Mono:700&display=swap" rel="stylesheet">
   <style>
-    :root{--yellow:#ffec40;--yellow-dark:#c2a216;--black:#232323;--shadow:#373737;--blue-sky:#7ecaff;--arda-main:#8dc4ff;--arda-dark:#397ee7;--white:#fff}
-    html,body{margin:0;padding:0;font-family:'IBM Plex Mono','Courier New',monospace;background:var(--blue-sky) url('minecraft-bg.svg') repeat;background-size:420px 420px;min-height:100vh}
-    header{padding:40px 0 16px;background:var(--yellow);border-bottom:7px solid var(--black);text-align:center;box-shadow:0 7px 0 var(--shadow)}
-    .logo-pixel{font-family:'Press Start 2P',monospace;font-size:2.2rem;letter-spacing:1px;color:var(--black);text-shadow:2px 2px var(--yellow-dark),6px 6px var(--shadow);margin-bottom:12px;display:inline-block}
-    .slogan{color:var(--black);font-size:1.1rem;background:var(--white);display:inline-block;padding:8px 20px;border-radius:9px;border:3px solid var(--black);box-shadow:2px 2px var(--shadow)}
-    nav{margin:0 auto;max-width:1100px;display:flex;justify-content:center;gap:32px;padding:18px 0 12px;flex-wrap:wrap}
-    nav a{font-family:'Press Start 2P',monospace;font-size:1.05rem;text-decoration:none;color:var(--black);padding:7px 24px;border:3px solid var(--black);background:var(--yellow);box-shadow:3px 3px var(--yellow-dark);border-radius:7px;transition:.18s}
-    nav a:hover{background:var(--yellow-dark);color:#fff;box-shadow:6px 6px 0 var(--shadow)}
-    .social-btns{margin:18px 0 30px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
-    .social-btns a{position:relative;display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:700;letter-spacing:1.2px;padding:13px 30px 13px 44px;border-radius:8px;border:3px solid var(--black);box-shadow:5px 5px 0 var(--yellow-dark);color:#fff;transition:.18s}
-    .social-btns a span{font-size:1.35em;position:absolute;left:12px;top:12px;filter:drop-shadow(1px 1px 0 #232323)}
-    .youtube{background:#ff0000}.youtube:hover{background:#a50000;color:#ffec40;box-shadow:9px 9px 0 #232323}
-    .telegram{background:#229ED9}.telegram:hover{background:#165b80;color:#ffec40;box-shadow:9px 9px 0 #232323}
-    .discord{background:#5865F2}.discord:hover{background:#3b4385;color:#ffec40;box-shadow:9px 9px 0 #232323}
-    .container{max-width:1200px;margin:34px auto 0;padding:0 2vw}
-    .posts-section,.gallery-section{margin-bottom:40px}
-    .posts-columns{display:grid;grid-template-columns:1fr 1fr;gap:34px}
-    .posts-col{display:flex;flex-direction:column;gap:22px}
-    .posts-title{font-family:'Press Start 2P',monospace;font-size:1.3rem;color:var(--black);margin-bottom:14px;text-shadow:1px 1px var(--yellow-dark);letter-spacing:1px}
-    .create-block,.arda-block{border-radius:18px;padding:28px 28px 24px;font-family:'IBM Plex Mono','Courier New',monospace;min-height:160px;border:5px solid var(--black)}
-    .create-block{background:url('data:image/svg+xml;utf8,<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><rect width="6" height="6" fill="%23c2a216"/><rect x="6" y="6" width="6" height="6" fill="%23c2a216"/></svg>') repeat var(--yellow);box-shadow:12px 12px 0 var(--yellow-dark)}
-    .arda-block{background:url('data:image/svg+xml;utf8,<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><rect width="6" height="6" fill="%23397ee7"/><rect x="6" y="6" width="6" height="6" fill="%23397ee7"/></svg>') repeat var(--arda-main);box-shadow:12px 12px 0 var(--arda-dark)}
-    .create-block h2,.arda-block h2{font-family:'Press Start 2P',monospace;font-size:1.15rem;margin:0;color:var(--black)}
-    .post-btn{display:inline-block;background:var(--black);color:var(--yellow);border:3px solid var(--black);padding:10px 28px;text-decoration:none;font-weight:bold;letter-spacing:1.2px;border-radius:0;box-shadow:3px 3px 0 var(--yellow-dark);transition:.2s}
-    .post-btn:hover{background:var(--yellow-dark);color:var(--black);border-color:var(--shadow)}
-    .arda-btn{background:var(--arda-dark);color:#fff;border:3px solid #232323;box-shadow:3px 3px 0 #232323}.arda-btn:hover{background:var(--arda-main);color:#232323;border-color:var(--arda-dark)}
-    .gallery-title{font-family:'Press Start 2P',monospace;font-size:1.2rem;color:var(--black);margin:6px 0 16px;text-shadow:1px 1px var(--yellow-dark)}
-    .btn-factories{display:inline-block;background:#b8fc26;color:#232323;font-family:'Press Start 2P',monospace;font-size:1.05rem;font-weight:bold;padding:14px 26px;border:3px solid #232323;border-radius:12px;box-shadow:6px 6px 0 #373737;text-decoration:none;letter-spacing:1.1px;transition:.18s}
-    .btn-factories:hover{background:#c2a216;color:#fff;box-shadow:10px 10px 0 #232323}
-    @media (max-width:900px){.posts-columns{grid-template-columns:1fr}}
-    @media (max-width:600px){.container{padding:0 3vw}header{padding:28px 0 9px}}
-    footer{padding:20px 0 36px;background:var(--yellow);border-top:5px solid var(--black);text-align:center;color:var(--black);box-shadow:0 -5px 0 var(--yellow-dark);margin-top:60px}
-    .footer-links{margin:12px 0 8px;font-size:1.06rem}
-    .footer-links a{color:var(--black);text-decoration:none;margin:0 14px;font-weight:bold;transition:color .14s}
-    .footer-links a:hover{color:var(--shadow)}
+    :root {
+      --yellow: #ffec40;
+      --yellow-dark: #c2a216;
+      --black: #232323;
+      --shadow: #373737;
+      --blue-sky: #7ecaff;
+      --pvp-main: #ff6b35;
+      --pvp-dark: #c43d00;
+      --white: #fff;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      background-color: var(--blue-sky);
+      background-image: url('minecraft-bg.svg');
+      background-repeat: repeat;
+      background-size: 420px 420px;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    header {
+      padding: 40px 0 16px 0;
+      background: var(--yellow);
+      border-bottom: 7px solid var(--black);
+      text-align: center;
+      box-shadow: 0 7px 0 var(--shadow);
+    }
+    .logo-pixel {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+      color: var(--black);
+      text-shadow: 2px 2px var(--yellow-dark), 6px 6px var(--shadow);
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .slogan {
+      color: var(--black);
+      font-size: 1.1rem;
+      background: var(--white);
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 9px;
+      border: 3px solid var(--black);
+      box-shadow: 2px 2px var(--shadow);
+    }
+    nav {
+      margin: 0 auto;
+      max-width: 1100px;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      padding: 18px 0 12px 0;
+      flex-wrap: wrap;
+    }
+    nav a {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.05rem;
+      text-decoration: none;
+      color: var(--black);
+      padding: 7px 24px;
+      border: 3px solid var(--black);
+      background: var(--yellow);
+      box-shadow: 3px 3px var(--yellow-dark);
+      border-radius: 7px;
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+    }
+    nav a:hover {
+      background: var(--yellow-dark);
+      color: var(--white);
+      box-shadow: 6px 6px var(--shadow);
+    }
+    .social-btns {
+      margin: 18px 0 30px 0;
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .social-btns a {
+      display: inline-block;
+      position: relative;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.08rem;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 1.2px;
+      padding: 13px 30px 13px 44px;
+      border-radius: 8px;
+      border: 3px solid var(--black);
+      box-shadow: 5px 5px 0 var(--yellow-dark);
+      color: #fff;
+      transition: background 0.2s, color 0.2s, box-shadow 0.18s;
+    }
+    .social-btns a span {
+      font-size: 1.35em;
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      filter: drop-shadow(1px 1px 0 #232323);
+    }
+    .social-btns .youtube {
+      background: #ff0000;
+    }
+    .social-btns .youtube:hover {
+      background: #a50000;
+      color: #ffec40;
+      box-shadow: 9px 9px 0 #232323;
+    }
+    .social-btns .telegram {
+      background: #229ED9;
+    }
+    .social-btns .telegram:hover {
+      background: #165b80;
+      color: #ffec40;
+      box-shadow: 9px 9px 0 #232323;
+    }
+    .social-btns .discord {
+      background: #5865F2;
+    }
+    .social-btns .discord:hover {
+      background: #3b4385;
+      color: #ffec40;
+      box-shadow: 9px 9px 0 #232323;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 34px auto 0 auto;
+      padding: 0 2vw;
+    }
+    /* DUAL COLUMN BRUTALIST LAYOUT */
+    .posts-section,
+    .gallery-section {
+      margin-bottom: 40px;
+    }
+    .posts-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+    }
+    .posts-col {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .posts-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.3rem;
+      color: var(--black);
+      margin-bottom: 14px;
+      text-shadow: 1px 1px var(--yellow-dark);
+      letter-spacing: 1px;
+      text-align: left;
+    }
+    .posts-list-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    /* CREATE MOD BLOCKS */
+    .create-block {
+      background:
+        url('data:image/svg+xml;utf8,<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="6" height="6" fill="%23c2a216" /><rect x="6" y="6" width="6" height="6" fill="%23c2a216" /></svg>') repeat,
+        var(--yellow);
+      border: 5px solid var(--black);
+      box-shadow: 12px 12px 0 var(--yellow-dark);
+      border-radius: 18px;
+      padding: 28px 28px 24px 28px;
+      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      position: relative;
+      transition: box-shadow 0.15s, transform 0.15s;
+      min-height: 160px;
+      overflow: hidden;
+    }
+    .create-block h2 {
+      color: var(--black);
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.15rem;
+      margin-top: 0;
+    }
+    .create-block p {
+      color: #232323;
+      font-size: 1.05rem;
+    }
+    .post-btn {
+      display: inline-block;
+      background: var(--black);
+      color: var(--yellow);
+      border: 3px solid var(--black);
+      padding: 10px 28px;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 1.2px;
+      border-radius: 0;
+      box-shadow: 3px 3px 0 var(--yellow-dark);
+      transition: background 0.2s, color 0.2s;
+      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    }
+    .post-btn:hover {
+      background: var(--yellow-dark);
+      color: var(--black);
+      border-color: var(--shadow);
+    }
+    /* ARDACRAFT BLOCKS */
+    .pvp-block {
+      background:
+        url('data:image/svg+xml;utf8,<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="6" height="6" fill="%23c43d00" /><rect x="6" y="6" width="6" height="6" fill="%23c43d00" /></svg>') repeat,
+        var(--pvp-main);
+      border: 5px solid var(--black);
+      box-shadow: 12px 12px 0 var(--pvp-dark);
+      border-radius: 18px;
+      padding: 28px 28px 24px 28px;
+      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      position: relative;
+      transition: box-shadow 0.15s, transform 0.15s;
+      min-height: 160px;
+      overflow: hidden;
+    }
+    .pvp-block h2 {
+      color: #fff;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.15rem;
+      margin-top: 0;
+    }
+    .pvp-block p {
+      color: #fff;
+      font-size: 1.05rem;
+    }
+    .pvp-btn {
+      background: var(--black);
+      color: var(--pvp-main);
+      border: 3px solid #232323;
+      box-shadow: 3px 3px 0 #232323;
+    }
+    .pvp-btn:hover {
+      background: var(--pvp-dark);
+      color: #fff;
+      border-color: var(--black);
+    }
+    /* GALLERY GRID */
+    .gallery-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.2rem;
+      color: var(--black);
+      margin-bottom: 14px;
+      text-shadow: 1px 1px var(--yellow-dark);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .gallery-grid img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border: 4px solid var(--black);
+      box-shadow: 6px 6px 0 var(--yellow-dark);
+      background: #fff;
+      border-radius: 10px;
+      transition: box-shadow 0.15s, transform 0.13s;
+    }
+    .arda-col .gallery-grid img {
+      box-shadow: 6px 6px 0 var(--arda-dark);
+    }
+    .gallery-grid img:hover {
+      box-shadow: 10px 10px 0 var(--shadow);
+      transform: scale(1.03) rotate(-2deg);
+    }
+    /* Responsive para columnas duales */
+    @media (max-width: 900px) {
+      .posts-columns {
+        grid-template-columns: 1fr;
+      }
+      .posts-col {
+        margin-bottom: 38px;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* Footer */
+    footer {
+      padding: 20px 0 36px 0;
+      background: var(--yellow);
+      border-top: 5px solid var(--black);
+      text-align: center;
+      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      color: var(--black);
+      box-shadow: 0 -5px 0 var(--yellow-dark);
+      margin-top: 60px;
+    }
+    .footer-links {
+      margin: 12px 0 8px 0;
+      font-size: 1.06rem;
+    }
+    .footer-links a {
+      color: var(--black);
+      text-decoration: none;
+      margin: 0 14px;
+      font-weight: bold;
+      transition: color 0.14s;
+    }
+    .footer-links a:hover { color: var(--shadow); }
+    @media (max-width: 600px) {
+      .container { padding: 0 3vw; }
+      header { padding: 28px 0 9px 0; }
+      .social-btns { flex-direction: column; gap: 14px; }
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="logo-pixel">3zkMC</div><br />
-    <span class="slogan">Create Mod & ArdaCraft • Epic Machines</span>
+    <div class="logo-pixel">3zkMC</div><br>
+    <span class="slogan">Create Mod & Project Sphere • Epic Machines</span>
   </header>
 
-  <div class="social-btns" aria-label="social links">
-    <a class="youtube" href="https://www.youtube.com/@3zkmc" target="_blank" rel="noopener"><span>▶️</span> YouTube</a>
-    <a class="telegram" href="https://t.me/+HGBS43P5G34xNGFk" target="_blank" rel="noopener"><span>✈️</span> Telegram</a>
-    <a class="discord" href="https://discord.gg/Hcuw2cqkdJ" target="_blank" rel="noopener"><span>💬</span> Discord</a>
+
+  <!-- Social buttons destacados (YouTube, Telegram, Discord) -->
+  <div class="social-btns">
+    <a href="https://www.youtube.com/@3zkmc" target="_blank" class="youtube">
+      <span>▶️</span>
+      YouTube
+    </a>
+    <a href="https://t.me/+HGBS43P5G34xNGFk" target="_blank" class="telegram">
+      <span>✈️</span>
+      Telegram
+    </a>
+    <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank" class="discord">
+      <span>💬</span>
+      Discord
+    </a>
   </div>
 
-  <nav aria-label="main navigation">
+  <nav>
     <a href="#posts">Posts</a>
     <a href="#gallery">Gallery</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
-    <a href="https://www.youtube.com/@3zkmc" target="_blank" rel="noopener">YouTube</a>
-    <a href="https://t.me/+HGBS43P5G34xNGFk" target="_blank" rel="noopener">Telegram</a>
-    <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank" rel="noopener">Discord</a>
+    <a href="https://www.youtube.com/@3zkmc" target="_blank">YouTube</a>
+    <a href="https://t.me/+HGBS43P5G34xNGFk" target="_blank">Telegram</a>
+    <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank">Discord</a>
   </nav>
 
   <div class="container">
-    <!-- POSTS -->
+
+    <!-- POSTS SECTION: 2 COLUMN BRUTALIST -->
     <section id="posts" class="posts-section">
       <div class="posts-columns">
+        <!-- LEFT: CREATE MOD -->
         <div class="posts-col create-col">
           <div class="posts-title" style="color:#232323;">🟨 Create Mod</div>
-          <div class="create-block">
-            <h2>⚙️ Mega Quarry Machine</h2>
-            <p>Automate massive mining with deployers, drills, and a sequenced gearshift clock. Includes stress and throughput tuning.</p>
-            <a href="#" class="post-btn">Read More</a>
-          </div>
-          <div class="create-block">
-            <h2>🔧 Flying Contraptions</h2>
-            <p>From windmill engines to superglued airframes: bearings, chassis, and propulsion logic step by step.</p>
-            <a href="#" class="post-btn">Read More</a>
+          <div class="posts-list-vertical">
+            <div class="create-block">
+              <h2>⚙️ Mega Quarry Machine</h2>
+              <p>How to automate massive mining operations with Create Mod. Blueprint, blocks, logic, and speed!</p>
+              <a href="#" class="post-btn">Read More</a>
+            </div>
+            <div class="create-block">
+              <h2>🔧 Flying Contraptions</h2>
+              <p>Everything you need to make your own flying machines in Minecraft Create Mod!</p>
+              <a href="#" class="post-btn">Read More</a>
+            </div>
           </div>
         </div>
-
-        <div class="posts-col arda-col">
-          <div class="posts-title" style="color:#232323;">🟦 ArdaCraft</div>
-          <div class="arda-block">
-            <h2>🏰 Rivendell in Progress</h2>
-            <p>Guided flythrough of terraces, water features, and elven arches. Palette breakdown and references.</p>
-            <a href="#" class="post-btn arda-btn">Read More</a>
-          </div>
-          <div class="arda-block">
-            <h2>🌲 Forest Builds</h2>
-            <p>Layered canopies, paths, and rocks: composing believable elven forests with custom leaves and ground cover.</p>
-            <a href="#" class="post-btn arda-btn">Read More</a>
+        <!-- RIGHT: PROJECT SPHERE -->
+        <div class="posts-col pvp-col">
+          <div class="posts-title" style="color:#232323;">🟧 Project Sphere</div>
+          <div class="posts-list-vertical">
+            <div class="pvp-block">
+              <h2>🌐 The Vegas Sphere</h2>
+              <p>Building the BEST PvP Arena in Minecraft — a massive sphere inspired by Las Vegas Sphere, inside a 120-mod survival world. Ep. 1-10: Foundation & terrain flattening.</p>
+              <a href="https://www.youtube.com/@3zkmc/streams" target="_blank" class="post-btn pvp-btn">Watch Series ▶</a>
+            </div>
+            <div class="pvp-block">
+              <h2>⚔️ Arena Progress</h2>
+              <p>24+ episodes of pure engineering: automating materials with Create Mod, sculpting the interior, and pushing Minecraft to its limits. Currently at Ep. 24!</p>
+              <a href="https://www.youtube.com/@3zkmc/streams" target="_blank" class="post-btn pvp-btn">Watch Now ▶</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- GALLERY: button to dedicated page -->
+    <!-- GALLERY SECTION: 2 COLUMN BRUTALIST -->
     <section id="gallery" class="gallery-section">
       <div class="posts-columns">
+        <!-- LEFT: CREATE MOD GALLERY -->
         <div class="posts-col create-col">
           <div class="gallery-title" style="color:#232323;">🟨 Create Mod Gallery</div>
-          <div style="text-align:center; margin: 10px 0 24px;">
-            <a class="btn-factories" href="factories.html">🔍 View all factories</a>
+          <div class="gallery-grid">
+            <img src="create/img1.jpg" alt="Create Machine 1">
+            <img src="create/img2.jpg" alt="Create Machine 2">
+            <!-- Agrega más imágenes aquí -->
           </div>
-          <p style="text-align:center;opacity:.85;margin:0 14px;">
-            Explore the full projects on the factories page. Each card opens a fullscreen viewer.
-          </p>
         </div>
-
-        <div class="posts-col arda-col">
-          <div class="gallery-title" style="color:#232323;">🟦 ArdaCraft Gallery</div>
-          <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center">
-            <img src="./ardacraft/img1.jpg" alt="ArdaCraft Build 1" style="width:320px;aspect-ratio:1/1;object-fit:cover;border:4px solid #232323;border-radius:10px;box-shadow:6px 6px 0 #397ee7" />
-            <img src="./ardacraft/img2.jpg" alt="ArdaCraft Build 2" style="width:320px;aspect-ratio:1/1;object-fit:cover;border:4px solid #232323;border-radius:10px;box-shadow:6px 6px 0 #397ee7" />
+        <!-- RIGHT: PROJECT SPHERE GALLERY -->
+        <div class="posts-col pvp-col">
+          <div class="gallery-title" style="color:#232323;">🟧 Project Sphere Gallery</div>
+          <div class="gallery-grid">
+            <img src="sphere/img1.jpg" alt="Project Sphere 1">
+            <img src="sphere/img2.jpg" alt="Project Sphere 2">
+            <!-- Agrega capturas del progreso aquí -->
           </div>
         </div>
       </div>
     </section>
 
-    <!-- DOWNLOADS BUTTON -->
-    <div style="text-align:center; margin:54px 0 40px;">
-      <a href="descargas.html"
-         style="display:inline-block;background:#b8fc26;color:#232323;font-family:'Press Start 2P',monospace;font-size:1.17rem;font-weight:bold;padding:18px 36px;border:3.5px solid #232323;border-radius:13px;box-shadow:7px 7px 0 #373737;text-decoration:none;letter-spacing:1.2px;transition:.2s"
-         onmouseover="this.style.background='#c2a216';this.style.color='#fff';this.style.boxShadow='13px 13px 0 #232323';"
-         onmouseout="this.style.background='#b8fc26';this.style.color='#232323';this.style.boxShadow='7px 7px 0 #373737';">
-        ⬇️ Schematics NBT / Download
-      </a>
-      <p style="margin-top:12px; font-size:0.95rem;">Find the <strong>.nbt</strong> blueprints for the machines shown in the gallery.</p>
-    </div>
-
-    <!-- ABOUT -->
-    <section id="about" style="margin:54px 0 40px;">
+    <!-- ABOUT SECTION -->
+    <section id="about" style="margin:54px 0 40px 0;">
       <div class="posts-title">🧩 About 3zkMC</div>
-      <div style="background:#fff;border:3px solid #232323;padding:24px;border-radius:10px;box-shadow:4px 4px 0 #c2a216;font-size:1.1rem;">
-        <p>Welcome to <b>3zkMC</b> — Minecraft as a canvas for creativity, precision, and engineering magic.</p>
-        <p>We push Create Mod to its limits with automation, smart logistics, and cinematic storytelling.</p>
-        <p>🎙️ A young creator, powered by creativity and built with purpose.</p>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" style="margin:44px 0 20px;">
-      <div class="posts-title">📬 Contact</div>
-      <div style="background:#fff;border:3px solid #232323;padding:20px;border-radius:10px;box-shadow:4px 4px 0 #c2a216;">
+      <div style="background: #fff; border:3px solid #232323; padding:24px; border-radius:10px; box-shadow:4px 4px 0 #c2a216; font-size:1.1rem;">
         <p>
-          Questions, collabs, or want to share your build?<br />
-          <b>Email:</b> <a href="mailto:hello@3zkmc.com" style="color:#232323;">hello@3zkmc.com</a><br />
-          <a href="mailto:hello@3zkmc.com"
-             style="display:inline-block;margin-top:12px;padding:12px 32px;background:#b8fc26;color:#232323;font-family:'IBM Plex Mono','Courier New',monospace;font-weight:bold;border:3px solid #232323;border-radius:8px;box-shadow: 3px 3px 0 #c2a216;text-decoration:none;font-size:1.1rem;transition:.18s"
-             onmouseover="this.style.background='#c2a216';this.style.color='#fff';this.style.boxShadow='6px 6px 0 #232323';"
-             onmouseout="this.style.background='#b8fc26';this.style.color='#232323';this.style.boxShadow='3px 3px 0 #c2a216';">Contact us</a>
-          <br /><br />
-          <b>YouTube:</b> <a href="https://www.youtube.com/@3zkmc" style="color:#232323;" target="_blank" rel="noopener">3zkMC on YouTube</a><br />
-          <b>Telegram:</b> <a href="https://t.me/+HGBS43P5G34xNGFk" style="color:#232323;" target="_blank" rel="noopener">Join our channel</a><br />
-          <b>Discord:</b> <a href="https://discord.gg/Hcuw2cqkdJ" style="color:#232323;" target="_blank" rel="noopener">Join our server</a>
+          Welcome to <b>3zkMC</b> where Minecraft becomes a canvas for creativity, precision, and pure engineering magic.<br><br>
+          This channel is all about pushing the boundaries of Minecraft through <b>Create Mod</b> tutorials, smart automation, and immersive storytelling.
+        </p>
+        <p>
+          ⚙️ <b>Want to learn how to build powerful machines, elegant contraptions, and efficient systems?</b><br>
+          Here, you’ll learn how — step by step.
+        </p>
+        <p>
+          🌄 <b>And soon, join us on a new journey inside ArdaCraft</b>, where we help build the world of Tolkien block by block. From dwarven halls to elven cities, you'll witness the art of construction at epic scale — and learn along the way.
+        </p>
+        <p>
+          🎙️ Narrated by a young creator, powered by creativity, and built with purpose.
+        </p>
+        <p>
+          <b>Subscribe, explore, and start learning how to build smarter, bigger, and with meaning.</b>
         </p>
       </div>
     </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" style="margin:44px 0 20px 0;">
+      <div class="posts-title">📬 Contact</div>
+      <div style="background: #fff; border:3px solid #232323; padding:20px; border-radius:10px; box-shadow:4px 4px 0 #c2a216;">
+        <p>
+          Have questions, want to share your build, or collaborate?<br>
+          <b>Email:</b> <a href="mailto:info@3zkmc.com" style="color:#232323;">info@3zkmc.com</a><br>
+          <b>YouTube:</b> <a href="https://www.youtube.com/@3zkmc" style="color:#232323;" target="_blank">3zkMC on YouTube</a><br>
+          <b>Telegram:</b> <a href="https://t.me/+HGBS43P5G34xNGFk" style="color:#232323;" target="_blank">Join our channel</a><br>
+          <b>Discord:</b> <a href="https://discord.gg/Hcuw2cqkdJ" style="color:#232323;" target="_blank">Join our server</a>
+        </p>
+      </div>
+    </section>
+
   </div>
 
   <footer>
     <div class="footer-links">
-      <a href="https://www.youtube.com/@3zkmc" target="_blank" rel="noopener">YouTube</a> •
-      <a href="https://t.me/+HGBS43P5G34xNGFk" target="_blank" rel="noopener">Telegram</a> •
-      <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank" rel="noopener">Discord</a> •
+      <a href="https://www.youtube.com/@3zkmc" target="_blank">YouTube</a> •
+      <a href="https://t.me/+HGBS43P5G34xNGFk" target="_blank">Telegram</a> •
+      <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank">Discord</a> •
       <a href="#about">About</a>
     </div>
-    <div><b>3zkMC</b> &copy; 2025 • Crafted with GRIT & Pixel Art</div>
+    <div>
+      <b>3zkMC</b> &copy; 2025 • Crafted with GRIT & Pixel Art
+    </div>
   </footer>
+
 </body>
 </html>
