@@ -277,6 +277,8 @@
       transform: scale(1.03) rotate(-2deg);
     }
     /* Responsive para columnas duales */
+    .btn-factories{display:inline-block;background:#b8fc26;color:#232323;font-family:'Press Start 2P',monospace;font-size:1.05rem;font-weight:bold;padding:14px 26px;border:3px solid #232323;border-radius:12px;box-shadow:6px 6px 0 #373737;text-decoration:none;letter-spacing:1.1px;transition:.18s}
+    .btn-factories:hover{background:#c2a216;color:#fff;box-shadow:10px 10px 0 #232323}
     @media (max-width: 900px) {
       .posts-columns {
         grid-template-columns: 1fr;
@@ -398,23 +400,34 @@
         <!-- LEFT: CREATE MOD GALLERY -->
         <div class="posts-col create-col">
           <div class="gallery-title" style="color:#232323;">🟨 Create Mod Gallery</div>
-          <div class="gallery-grid">
-            <img src="create/img1.jpg" alt="Create Machine 1">
-            <img src="create/img2.jpg" alt="Create Machine 2">
-            <!-- Agrega más imágenes aquí -->
+          <div style="text-align:center; margin: 10px 0 24px;">
+            <a class="btn-factories" href="factories.html">🔍 View all factories</a>
           </div>
+          <p style="text-align:center;opacity:.85;margin:0 14px;">
+            Explore the full projects on the factories page. Each card opens a fullscreen viewer.
+          </p>
         </div>
         <!-- RIGHT: PROJECT SPHERE GALLERY -->
         <div class="posts-col pvp-col">
           <div class="gallery-title" style="color:#232323;">🟧 Project Sphere Gallery</div>
-          <div class="gallery-grid">
-            <img src="sphere/img1.jpg" alt="Project Sphere 1">
-            <img src="sphere/img2.jpg" alt="Project Sphere 2">
-            <!-- Agrega capturas del progreso aquí -->
+          <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center">
+            <img src="./sphere/img1.jpg" alt="Project Sphere 1" style="width:320px;aspect-ratio:1/1;object-fit:cover;border:4px solid #232323;border-radius:10px;box-shadow:6px 6px 0 var(--pvp-dark)" />
+            <img src="./sphere/img2.jpg" alt="Project Sphere 2" style="width:320px;aspect-ratio:1/1;object-fit:cover;border:4px solid #232323;border-radius:10px;box-shadow:6px 6px 0 var(--pvp-dark)" />
           </div>
         </div>
       </div>
     </section>
+
+    <!-- DOWNLOADS BUTTON -->
+    <div style="text-align:center; margin:54px 0 40px;">
+      <a href="descargas.html"
+         style="display:inline-block;background:#b8fc26;color:#232323;font-family:'Press Start 2P',monospace;font-size:1.17rem;font-weight:bold;padding:18px 36px;border:3.5px solid #232323;border-radius:13px;box-shadow:7px 7px 0 #373737;text-decoration:none;letter-spacing:1.2px;transition:.2s"
+         onmouseover="this.style.background='#c2a216';this.style.color='#fff';this.style.boxShadow='13px 13px 0 #232323';"
+         onmouseout="this.style.background='#b8fc26';this.style.color='#232323';this.style.boxShadow='7px 7px 0 #373737';">
+        ⬇️ Schematics NBT / Download
+      </a>
+      <p style="margin-top:12px; font-size:0.95rem;">Find the <strong>.nbt</strong> blueprints for the machines shown in the gallery.</p>
+    </div>
 
     <!-- ABOUT SECTION -->
     <section id="about" style="margin:54px 0 40px 0;">
