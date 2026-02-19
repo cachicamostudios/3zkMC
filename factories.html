@@ -99,11 +99,11 @@
 <script>
   // Build safe URL (handles spaces, (), #, etc.)
   function safe(path){
-    // if already absolute or data URI, return
+    // if already absolute or data URI, return as-is
     if(/^data:|^https?:\/\//i.test(path)) return path;
+    // new URL() already percent-encodes spaces and special chars in the path
+    // so just use it directly without calling encodeURI again (avoids %2520)
     const u = new URL(path, document.baseURI);
-    // encode only pathname; leave origin/query/hash intact
-    u.pathname = encodeURI(u.pathname).replace(/#/g,'%23');
     return u.toString();
   }
   // Assign src/href from data-* with safe encoding
