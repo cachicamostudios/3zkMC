@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /search/
 
 Sitemap: https://3zkmc.com/sitemap.xml
