@@ -22,12 +22,20 @@
   <meta name="msvalidate.01" content="9C3CFFDF04A52C3D19D5C21FBAC2E67A" />
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|IBM+Plex+Mono:700&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'Minecraftory';
+      src: url('fonts/Minecraftory.ttf') format('truetype');
+      font-display: swap;
+    }
     :root {
       --yellow: #ffec40;
       --yellow-dark: #c2a216;
       --black: #232323;
       --shadow: #373737;
       --blue-sky: #7ecaff;
+      --bg-dark: #313233;
+      --bg-dark2: #2c2d2e;
+      --text-light: #e8e8e8;
       --pvp-main: #ff6b35;
       --pvp-dark: #c43d00;
       --white: #fff;
@@ -36,64 +44,45 @@
       margin: 0;
       padding: 0;
       font-family: 'IBM Plex Mono', 'Courier New', monospace;
-      background-color: var(--blue-sky);
-      background-image: url('minecraft-bg.svg');
-      background-repeat: repeat;
-      background-size: 420px 420px;
+      background-color: var(--bg-dark);
+      background-image: conic-gradient(var(--bg-dark2) 25%, var(--bg-dark) 0 50%, var(--bg-dark2) 0 75%, var(--bg-dark) 0);
+      background-size: 80px 80px;
+      color: var(--text-light);
       min-height: 100vh;
       box-sizing: border-box;
     }
     header {
-      padding: 40px 0 16px 0;
+      padding: 22px 44px 22px 24px;
       background: var(--yellow);
       border-bottom: 7px solid var(--black);
-      text-align: center;
       box-shadow: 0 7px 0 var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 110px;
+      flex-wrap: wrap;
     }
     .logo-pixel {
-      font-family: 'Press Start 2P', monospace;
+      font-family: 'Minecraftory', 'Press Start 2P', monospace;
       font-size: 2.2rem;
       letter-spacing: 1px;
       color: var(--black);
-      text-shadow: 2px 2px var(--yellow-dark), 6px 6px var(--shadow);
-      margin-bottom: 12px;
       display: inline-block;
-    }
-    .slogan {
-      color: var(--black);
-      font-size: 1.1rem;
-      background: var(--white);
-      display: inline-block;
-      padding: 8px 20px;
-      border-radius: 9px;
-      border: 3px solid var(--black);
-      box-shadow: 2px 2px var(--shadow);
     }
     nav {
-      margin: 0 auto;
-      max-width: 1100px;
       display: flex;
-      justify-content: center;
-      gap: 32px;
-      padding: 18px 0 12px 0;
+      align-items: center;
+      gap: 30px;
       flex-wrap: wrap;
     }
     nav a {
-      font-family: 'Press Start 2P', monospace;
+      font-family: 'Minecraftory', 'Press Start 2P', monospace;
       font-size: 1.05rem;
       text-decoration: none;
       color: var(--black);
-      padding: 7px 24px;
-      border: 3px solid var(--black);
-      background: var(--yellow);
-      box-shadow: 3px 3px var(--yellow-dark);
-      border-radius: 7px;
-      transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+      transition: color 0.18s;
     }
     nav a:hover {
-      background: var(--yellow-dark);
-      color: var(--white);
-      box-shadow: 6px 6px var(--shadow);
+      color: var(--shadow);
     }
     .social-btns {
       margin: 18px 0 30px 0;
@@ -169,11 +158,10 @@
       gap: 22px;
     }
     .posts-title {
-      font-family: 'Press Start 2P', monospace;
+      font-family: 'Minecraftory', 'Press Start 2P', monospace;
       font-size: 1.3rem;
-      color: var(--black);
+      color: var(--text-light);
       margin-bottom: 14px;
-      text-shadow: 1px 1px var(--yellow-dark);
       letter-spacing: 1px;
       text-align: left;
     }
@@ -184,9 +172,7 @@
     }
     /* CREATE MOD BLOCKS */
     .create-block {
-      background:
-        url('data:image/svg+xml;utf8,<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="6" height="6" fill="%23c2a216" /><rect x="6" y="6" width="6" height="6" fill="%23c2a216" /></svg>') repeat,
-        var(--yellow);
+      background: var(--yellow);
       border: 5px solid var(--black);
       box-shadow: 12px 12px 0 var(--yellow-dark);
       border-radius: 18px;
@@ -199,7 +185,7 @@
     }
     .create-block h2 {
       color: var(--black);
-      font-family: 'Press Start 2P', monospace;
+      font-family: 'Minecraftory', 'Press Start 2P', monospace;
       font-size: 1.15rem;
       margin-top: 0;
     }
@@ -228,9 +214,7 @@
     }
     /* ARDACRAFT BLOCKS */
     .pvp-block {
-      background:
-        url('data:image/svg+xml;utf8,<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="6" height="6" fill="%23c43d00" /><rect x="6" y="6" width="6" height="6" fill="%23c43d00" /></svg>') repeat,
-        var(--pvp-main);
+      background: var(--pvp-main);
       border: 5px solid var(--black);
       box-shadow: 12px 12px 0 var(--pvp-dark);
       border-radius: 18px;
@@ -243,7 +227,7 @@
     }
     .pvp-block h2 {
       color: #fff;
-      font-family: 'Press Start 2P', monospace;
+      font-family: 'Minecraftory', 'Press Start 2P', monospace;
       font-size: 1.15rem;
       margin-top: 0;
     }
@@ -264,11 +248,10 @@
     }
     /* GALLERY GRID */
     .gallery-title {
-      font-family: 'Press Start 2P', monospace;
+      font-family: 'Minecraftory', 'Press Start 2P', monospace;
       font-size: 1.2rem;
-      color: var(--black);
+      color: var(--text-light);
       margin-bottom: 14px;
-      text-shadow: 1px 1px var(--yellow-dark);
     }
     .gallery-grid {
       display: grid;
@@ -293,7 +276,7 @@
       transform: scale(1.03) rotate(-2deg);
     }
     /* Responsive para columnas duales */
-    .btn-factories{display:inline-block;background:#b8fc26;color:#232323;font-family:'Press Start 2P',monospace;font-size:1.05rem;font-weight:bold;padding:14px 26px;border:3px solid #232323;border-radius:12px;box-shadow:6px 6px 0 #373737;text-decoration:none;letter-spacing:1.1px;transition:.18s}
+    .btn-factories{display:inline-block;background:#b8fc26;color:#232323;font-family:'Minecraftory','Press Start 2P',monospace;font-size:1.05rem;font-weight:bold;padding:14px 26px;border:3px solid #232323;border-radius:12px;box-shadow:6px 6px 0 #373737;text-decoration:none;letter-spacing:1.1px;transition:.18s}
     .btn-factories:hover{background:#c2a216;color:#fff;box-shadow:10px 10px 0 #232323}
     @media (max-width: 900px) {
       .posts-columns {
@@ -339,8 +322,16 @@
 <body>
 
   <header>
-    <div class="logo-pixel">3zkMC</div><br>
-    <span class="slogan">Create Mod & Project Sphere • Epic Machines</span>
+    <div class="logo-pixel">3zkMC</div>
+    <nav>
+      <a href="#posts">Posts</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.youtube.com/@3zkmc" target="_blank">YouTube</a>
+      <a href="https://t.me/+HGBS43P5G34xNGFk" target="_blank">Telegram</a>
+      <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank">Discord</a>
+    </nav>
   </header>
 
 
@@ -360,16 +351,6 @@
     </a>
   </div>
 
-  <nav>
-    <a href="#posts">Posts</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a href="https://www.youtube.com/@3zkmc" target="_blank">YouTube</a>
-    <a href="https://t.me/+HGBS43P5G34xNGFk" target="_blank">Telegram</a>
-    <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank">Discord</a>
-  </nav>
-
   <div class="container">
 
     <!-- POSTS SECTION: 2 COLUMN BRUTALIST -->
@@ -377,23 +358,23 @@
       <div class="posts-columns">
         <!-- LEFT: CREATE MOD -->
         <div class="posts-col create-col">
-          <div class="posts-title" style="color:#232323;">🟨 Create Mod</div>
+          <div class="posts-title" style="text-align:center;font-size:1.7rem;">🟨 Create Mod</div>
           <div class="posts-list-vertical">
             <div class="create-block">
-              <h2>⚙️ Mega Quarry Machine</h2>
-              <p>How to automate massive mining operations with Create Mod. Blueprint, blocks, logic, and speed!</p>
-              <a href="#" class="post-btn">Read More</a>
+              <h2>⚙️ Create Mod Series</h2>
+              <p>I have a series where I build and make videos with the Create Mod! I have everything from farms to videos explaining real life places, objects...</p>
+              <a href="https://www.youtube.com/playlist?list=PLz73vlXJE6-iVQ7W5sxoj5GFIXf3Y-nhF" target="_blank" rel="noopener" class="post-btn">Watch Series ▶</a>
             </div>
             <div class="create-block">
-              <h2>🔧 Flying Contraptions</h2>
-              <p>Everything you need to make your own flying machines in Minecraft Create Mod!</p>
+              <h2>🔧 Create Aeronautics</h2>
+              <p>Create Aeronautics is the BEST physics mod out there, and it pairs with the Create Mod! How amazing, it let's you do boats, planes, hot air ballons, ALL WITH PHYSICS!</p>
               <a href="#" class="post-btn">Read More</a>
             </div>
           </div>
         </div>
         <!-- RIGHT: PROJECT SPHERE -->
         <div class="posts-col pvp-col">
-          <div class="posts-title" style="color:#232323;">🟧 Project Sphere</div>
+          <div class="posts-title" style="text-align:center;font-size:1.7rem;">🟧 Project Sphere</div>
           <div class="posts-list-vertical">
             <div class="pvp-block">
               <h2>🌐 The Vegas Sphere</h2>
@@ -415,7 +396,7 @@
       <div class="posts-columns">
         <!-- LEFT: CREATE MOD GALLERY -->
         <div class="posts-col create-col">
-          <div class="gallery-title" style="color:#232323;">🟨 Create Mod Gallery</div>
+          <div class="gallery-title" style="text-align:center;">🟨 Create Mod Gallery</div>
           <div style="text-align:center; margin: 10px 0 24px;">
             <a class="btn-factories" href="factories.html">🔍 View all factories</a>
           </div>
@@ -425,7 +406,7 @@
         </div>
         <!-- RIGHT: PROJECT SPHERE GALLERY -->
         <div class="posts-col pvp-col">
-          <div class="gallery-title" style="color:#232323;">🟧 Project Sphere Gallery</div>
+          <div class="gallery-title" style="text-align:center;">🟧 Project Sphere Gallery</div>
           <div style="text-align:center; margin: 10px 0 24px;">
             <a class="btn-factories" style="background:var(--pvp-main);color:#fff;border-color:var(--pvp-dark);box-shadow:6px 6px 0 var(--pvp-dark);" href="sphere.html">🌐 View Project Sphere</a>
           </div>
@@ -440,7 +421,7 @@
     <!-- DOWNLOADS BUTTON -->
     <div style="text-align:center; margin:54px 0 40px;">
       <a href="descargas.html"
-         style="display:inline-block;background:#b8fc26;color:#232323;font-family:'Press Start 2P',monospace;font-size:1.17rem;font-weight:bold;padding:18px 36px;border:3.5px solid #232323;border-radius:13px;box-shadow:7px 7px 0 #373737;text-decoration:none;letter-spacing:1.2px;transition:.2s"
+         style="display:inline-block;background:#b8fc26;color:#232323;font-family:'Minecraftory','Press Start 2P',monospace;font-size:1.17rem;font-weight:bold;padding:18px 36px;border:3.5px solid #232323;border-radius:13px;box-shadow:7px 7px 0 #373737;text-decoration:none;letter-spacing:1.2px;transition:.2s"
          onmouseover="this.style.background='#c2a216';this.style.color='#fff';this.style.boxShadow='13px 13px 0 #232323';"
          onmouseout="this.style.background='#b8fc26';this.style.color='#232323';this.style.boxShadow='7px 7px 0 #373737';">
         ⬇️ Schematics NBT / Download
@@ -451,7 +432,7 @@
     <!-- ABOUT SECTION -->
     <section id="about" style="margin:54px 0 40px 0;">
       <div class="posts-title">🧩 About 3zkMC</div>
-      <div style="background: #fff; border:3px solid #232323; padding:24px; border-radius:10px; box-shadow:4px 4px 0 #c2a216; font-size:1.1rem;">
+      <div style="background: #fff; border:3px solid #232323; padding:24px; border-radius:10px; box-shadow:4px 4px 0 #c2a216; font-size:1.1rem; color:#232323;">
         <p>
           Welcome to <b>3zkMC</b> where Minecraft becomes a canvas for creativity, precision, and pure engineering magic.<br><br>
           This channel is all about pushing the boundaries of Minecraft through <b>Create Mod</b> tutorials, smart automation, and immersive storytelling.
@@ -475,7 +456,7 @@
     <!-- CONTACT SECTION -->
     <section id="contact" style="margin:44px 0 20px 0;">
       <div class="posts-title">📬 Contact</div>
-      <div style="background: #fff; border:3px solid #232323; padding:20px; border-radius:10px; box-shadow:4px 4px 0 #c2a216;">
+      <div style="background: #fff; border:3px solid #232323; padding:20px; border-radius:10px; box-shadow:4px 4px 0 #c2a216; color:#232323;">
         <p>
           Have questions, want to share your build, or collaborate?<br>
           <b>Email:</b> <a href="mailto:info@3zkmc.com" style="color:#232323;">info@3zkmc.com</a><br>
