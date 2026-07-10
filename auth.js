@@ -56,7 +56,9 @@ export async function mountAuthStrip() {
       };
       el.append(who, out);
     } else {
-      el.innerHTML = `<a class="auth-btn" href="cuenta.html">Log In / Sign Up</a>`;
+      const onDownloads = window.location.pathname.endsWith('descargas.html');
+      const href = onDownloads ? 'cuenta.html?next=descargas' : 'cuenta.html';
+      el.innerHTML = `<a class="auth-btn" href="${href}">Log In / Sign Up</a>`;
     }
   };
 

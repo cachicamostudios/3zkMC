@@ -395,12 +395,12 @@
         : 'Free account required — log in to unlock the downloads.';
     }
 
+    mountAuthStrip();
+    applyGate(await getSession());
+    onAuthChange(applyGate);
+
     if (!isConfigured) {
       note.textContent = 'Auth not configured — add your Supabase keys to supabase-config.js.';
-    } else {
-      mountAuthStrip();
-      applyGate(await getSession());
-      onAuthChange(applyGate);
     }
   </script>
 </body>
