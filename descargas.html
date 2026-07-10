@@ -139,6 +139,54 @@
       background: #b8fc26;
       color: #232323;
     }
+    #auth-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .auth-user {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .8rem;
+      font-weight: bold;
+      color: #232323;
+      background: #ffec40;
+      border: 2.5px solid #232323;
+      border-radius: 8px;
+      padding: 8px 12px;
+      box-shadow: 2px 2px 0 #c2a216;
+      max-width: 60vw;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .auth-btn {
+      display: inline-block;
+      background: #232323;
+      color: #fff;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .82rem;
+      font-weight: bold;
+      padding: 9px 20px;
+      border-radius: 9px;
+      border: 2.5px solid #c2a216;
+      box-shadow: 2px 2px 0 #b8fc26;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.17s, color 0.17s;
+    }
+    .auth-btn:hover { background: #b8fc26; color: #232323; }
+
+    .gate-note {
+      text-align: center;
+      color: #bdbdbd;
+      font-size: .85rem;
+      margin: -18px 16px 34px 16px;
+      line-height: 1.6;
+    }
+
     @media (max-width: 700px) {
       .schematics-list { flex-direction: column; align-items: center; }
       .schematic-card { width: 98vw; }
@@ -152,8 +200,10 @@
     <div style="margin-top:12px;">
       <a class="back-home" href="index.html">&larr; Back Home</a>
     </div>
+    <div id="auth-strip"></div>
   </header>
   <h1>Download Schematics <span style="color:#397ee7">.nbt</span> for your farms in your world</h1>
+  <p class="gate-note" id="gate-note">Free account required &mdash; log in to unlock the downloads.</p>
 
   <div class="schematics-list">
     <!-- Diamond Farm Card -->
@@ -165,7 +215,7 @@
         <img src="schematics/diamond_farm_4.png" alt="Diamond Farm - Vista 4">
       </div>
       <h3>Diamond Farm</h3>
-      <a href="schematics/diamond_farm.nbt" download>Download .nbt</a>
+      <a class="dl-btn" data-file="schematics/diamond_farm.nbt" href="cuenta.html?next=descargas">Log In to Download</a>
     </div>
 
     <!-- XP Farm Card -->
@@ -176,7 +226,7 @@
         <img src="schematics/xp_farm_3.png" alt="XP Farm - Vista 3">
       </div>
       <h3>XP Farm</h3>
-      <a href="schematics/xp_farm.nbt" download>Download .nbt</a>
+      <a class="dl-btn" data-file="schematics/xp_farm.nbt" href="cuenta.html?next=descargas">Log In to Download</a>
     </div>
 
     <!-- Andesite Alloy Farm Card -->
@@ -186,7 +236,7 @@
         <img src="schematics/Andesite Alloy Farm 2.png" alt="Andesite Alloy Farm - Vista 2">
       </div>
       <h3>Andesite Alloy Farm</h3>
-      <a href="schematics/andesite_alloy_farm.nbt" download>Download .nbt</a>
+      <a class="dl-btn" data-file="schematics/andesite_alloy_farm.nbt" href="cuenta.html?next=descargas">Log In to Download</a>
     </div>
 
     <!-- Andesite Block Farm Card -->
@@ -196,7 +246,7 @@
         <img src="schematics/Andesite Block Farm 2.png" alt="Andesite Block Farm - Vista 2">
       </div>
       <h3>Andesite Block Farm</h3>
-      <a href="schematics/andesite_block_farm.nbt" download>Download .nbt</a>
+      <a class="dl-btn" data-file="schematics/andesite_block_farm.nbt" href="cuenta.html?next=descargas">Log In to Download</a>
     </div>
 
     <!-- Create Mod Train Card -->
@@ -208,7 +258,7 @@
         <img src="schematics/Create Mod Train 4.png" alt="Create Mod Train - Vista 4">
       </div>
       <h3>Create Mod Train</h3>
-      <a href="schematics/create_mod_train.nbt" download>Download .nbt</a>
+      <a class="dl-btn" data-file="schematics/create_mod_train.nbt" href="cuenta.html?next=descargas">Log In to Download</a>
     </div>
 
     <!-- Bigger Netherite Farm -->
@@ -220,7 +270,7 @@
         <img src="schematics/Bigger_Netherite_Farm_4.png" alt="Bigger Netherite Farm - Vista 4">
       </div>
       <h3>Bigger Netherite Farm</h3>
-      <a href="schematics/bigger_netherite_farm.nbt" download>Download .nbt</a>
+      <a class="dl-btn" data-file="schematics/bigger_netherite_farm.nbt" href="cuenta.html?next=descargas">Log In to Download</a>
     </div>
 
     <!-- Gold Farm -->
@@ -232,7 +282,7 @@
         <img src="schematics/Gold_Farm_4.png" alt="Gold Farm - Vista 4">
       </div>
       <h3>Gold Farm</h3>
-      <a href="schematics/gold_farm.nbt" download>Download .nbt</a>
+      <a class="dl-btn" data-file="schematics/gold_farm.nbt" href="cuenta.html?next=descargas">Log In to Download</a>
     </div>
 
     <!-- Iron Farm -->
@@ -244,7 +294,7 @@
         <img src="schematics/Iron_Farm_4.png" alt="Iron Farm - Vista 4">
       </div>
       <h3>Iron Farm</h3>
-      <a href="schematics/iron_farm.nbt" download>Download .nbt</a>
+      <a class="dl-btn" data-file="schematics/iron_farm.nbt" href="cuenta.html?next=descargas">Log In to Download</a>
     </div>
 
     <!-- Netherite Farm -->
@@ -255,7 +305,7 @@
         <img src="schematics/Netherite_Farm_3.png" alt="Netherite Farm - Vista 3">
       </div>
       <h3>Netherite Farm</h3>
-      <a href="schematics/netherite_farm.nbt" download>Download .nbt</a>
+      <a class="dl-btn" data-file="schematics/netherite_farm.nbt" href="cuenta.html?next=descargas">Log In to Download</a>
     </div>
 
     <!-- Redstone Farm -->
@@ -266,7 +316,7 @@
         <img src="schematics/Redstone_Farm_3.png" alt="Redstone Farm - Vista 3">
       </div>
       <h3>Redstone Farm</h3>
-      <a href="schematics/redstone_farm.nbt" download>Download .nbt</a>
+      <a class="dl-btn" data-file="schematics/redstone_farm.nbt" href="cuenta.html?next=descargas">Log In to Download</a>
     </div>
 
   </div>
@@ -319,6 +369,39 @@
       if (e.key === 'ArrowRight') showNext();
       if (e.key === 'Escape')     modal.style.display = 'none';
     });
+  </script>
+
+  <script type="module">
+    import { mountAuthStrip, getSession, onAuthChange, isConfigured } from './auth.js';
+
+    const note = document.getElementById('gate-note');
+    const buttons = document.querySelectorAll('.dl-btn');
+
+    function applyGate(session) {
+      const unlocked = Boolean(session);
+      buttons.forEach((btn) => {
+        if (unlocked) {
+          btn.href = btn.dataset.file;
+          btn.setAttribute('download', '');
+          btn.textContent = 'Download .nbt';
+        } else {
+          btn.href = 'cuenta.html?next=descargas';
+          btn.removeAttribute('download');
+          btn.textContent = 'Log In to Download';
+        }
+      });
+      note.textContent = unlocked
+        ? 'You are logged in — downloads unlocked.'
+        : 'Free account required — log in to unlock the downloads.';
+    }
+
+    if (!isConfigured) {
+      note.textContent = 'Auth not configured — add your Supabase keys to supabase-config.js.';
+    } else {
+      mountAuthStrip();
+      applyGate(await getSession());
+      onAuthChange(applyGate);
+    }
   </script>
 </body>
 </html>

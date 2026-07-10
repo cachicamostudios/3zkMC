@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Account - 3zkMC</title>
+  <meta name="description" content="Crea tu cuenta de 3zkMC para acceder a las descargas de esquemáticos de Minecraft." />
+  <link rel="canonical" href="https://3zkmc.com/cuenta.html" />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="robots" content="noindex" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|IBM+Plex+Mono:700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Minecraftory';
+      src: url('fonts/Minecraftory.ttf') format('truetype');
+      font-display: swap;
+    }
+    body {
+      margin: 0;
+      background: #3a3b3d;
+      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    }
+    header {
+      padding: 34px 0 16px 0;
+      background: #b8fc26;
+      border-bottom: 6px solid #232323;
+      text-align: center;
+      box-shadow: 0 7px 0 #373737;
+    }
+    .logo-pixel {
+      font-family: 'Minecraftory', 'Press Start 2P', monospace;
+      font-size: 2.1rem;
+      color: #232323;
+      letter-spacing: 1px;
+    }
+    .back-home {
+      display: block;
+      margin: 12px auto 0 auto;
+      width: max-content;
+      background: #232323;
+      color: #fff;
+      font-family: 'IBM Plex Mono', monospace;
+      padding: 11px 30px;
+      border-radius: 9px;
+      border: 2.5px solid #c2a216;
+      box-shadow: 2px 2px 0 #b8fc26;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.17s, color 0.17s;
+    }
+    .back-home:hover { background: #b8fc26; color: #232323; }
+
+    h1 {
+      font-family: 'Minecraftory', 'Press Start 2P', monospace;
+      text-align: center;
+      font-size: 1.22rem;
+      color: #e8e8e8;
+      margin: 34px 16px 10px 16px;
+      letter-spacing: 1px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #bdbdbd;
+      font-size: .92rem;
+      margin: 0 16px 30px 16px;
+      line-height: 1.6;
+    }
+
+    .auth-card {
+      background: #fff;
+      border: 3.5px solid #232323;
+      box-shadow: 9px 9px 0 #b8fc26;
+      border-radius: 16px;
+      padding: 28px 26px 30px 26px;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 60px auto;
+      box-sizing: border-box;
+    }
+    .tabs { display: flex; gap: 10px; margin-bottom: 24px; }
+    .tab {
+      flex: 1;
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: bold;
+      font-size: .95rem;
+      padding: 10px 0;
+      border: 2.5px solid #232323;
+      border-radius: 8px;
+      background: #eee;
+      color: #232323;
+      cursor: pointer;
+      transition: background .15s, box-shadow .15s;
+    }
+    .tab[aria-selected="true"] {
+      background: #b8fc26;
+      box-shadow: 3px 3px 0 #c2a216;
+    }
+
+    label {
+      display: block;
+      font-size: .8rem;
+      font-weight: bold;
+      color: #232323;
+      margin: 0 0 6px 2px;
+      letter-spacing: .5px;
+    }
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1rem;
+      padding: 11px 12px;
+      border: 2.5px solid #232323;
+      border-radius: 8px;
+      background: #f5f5f5;
+      margin-bottom: 18px;
+      outline: none;
+    }
+    input:focus { background: #fff; box-shadow: 3px 3px 0 #b8fc26; }
+
+    .submit-btn {
+      width: 100%;
+      background: #b8fc26;
+      color: #232323;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.04rem;
+      font-weight: bold;
+      padding: 13px 0;
+      border: 2.5px solid #232323;
+      border-radius: 8px;
+      box-shadow: 3px 3px 0 #c2a216;
+      cursor: pointer;
+      transition: background .19s, color .19s, box-shadow .18s;
+    }
+    .submit-btn:hover:not(:disabled) {
+      background: #c2a216; color: #fff; box-shadow: 6px 6px 0 #373737;
+    }
+    .submit-btn:disabled { opacity: .55; cursor: not-allowed; }
+
+    .link-btn {
+      display: block;
+      margin: 16px auto 0 auto;
+      background: none;
+      border: none;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .82rem;
+      color: #397ee7;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .msg {
+      margin: 0 0 18px 0;
+      padding: 11px 13px;
+      border: 2.5px solid #232323;
+      border-radius: 8px;
+      font-size: .84rem;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+    .msg.error { background: #ffd7d7; box-shadow: 3px 3px 0 #a33; }
+    .msg.ok    { background: #dcffb0; box-shadow: 3px 3px 0 #5a8a1e; }
+    .msg.warn  { background: #ffec40; box-shadow: 3px 3px 0 #c2a216; }
+    .hidden { display: none; }
+
+    @media (max-width: 480px) {
+      .auth-card { max-width: 94vw; padding: 22px 18px 24px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-pixel">3zkMC</div>
+    <a class="back-home" href="index.html">&larr; Back Home</a>
+  </header>
+
+  <h1 id="page-title">Log In</h1>
+  <p class="subtitle" id="page-sub">Log in to download the <span style="color:#397ee7">.nbt</span> schematics.</p>
+
+  <div class="auth-card">
+    <div id="config-warning" class="msg warn hidden">
+      Auth is not configured yet. Add your Supabase URL and anon key to
+      <strong>supabase-config.js</strong>.
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab" id="tab-login" role="tab" aria-selected="true">Log In</button>
+      <button class="tab" id="tab-signup" role="tab" aria-selected="false">Sign Up</button>
+    </div>
+
+    <div id="msg" class="msg hidden"></div>
+
+    <form id="auth-form" autocomplete="on">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required minlength="8"
+             autocomplete="current-password" placeholder="At least 8 characters">
+
+      <button type="submit" class="submit-btn" id="submit-btn">Log In</button>
+    </form>
+
+    <button class="link-btn" id="forgot-btn">Forgot your password?</button>
+  </div>
+
+  <script type="module">
+    import { supabase, isConfigured, signUp, signIn, resetPassword, getSession } from './auth.js';
+
+    const tabLogin  = document.getElementById('tab-login');
+    const tabSignup = document.getElementById('tab-signup');
+    const form      = document.getElementById('auth-form');
+    const emailEl   = document.getElementById('email');
+    const passEl    = document.getElementById('password');
+    const submitBtn = document.getElementById('submit-btn');
+    const forgotBtn = document.getElementById('forgot-btn');
+    const msg       = document.getElementById('msg');
+    const title     = document.getElementById('page-title');
+    const sub       = document.getElementById('page-sub');
+
+    let mode = 'login';
+
+    // Where to send the user after a successful login.
+    const params = new URLSearchParams(window.location.search);
+    const next = params.get('next') === 'descargas' ? 'descargas.html' : 'index.html';
+
+    if (!isConfigured) {
+      document.getElementById('config-warning').classList.remove('hidden');
+      form.querySelectorAll('input, button').forEach(el => (el.disabled = true));
+      forgotBtn.disabled = true;
+    } else if (await getSession()) {
+      window.location.replace(next);
+    }
+
+    function show(text, kind) {
+      msg.textContent = text;
+      msg.className = `msg ${kind}`;
+    }
+    function clearMsg() { msg.className = 'msg hidden'; msg.textContent = ''; }
+
+    function setMode(next) {
+      mode = next;
+      const login = mode === 'login';
+      tabLogin.setAttribute('aria-selected', String(login));
+      tabSignup.setAttribute('aria-selected', String(!login));
+      submitBtn.textContent = login ? 'Log In' : 'Create Account';
+      title.textContent = login ? 'Log In' : 'Sign Up';
+      sub.innerHTML = login
+        ? 'Log in to download the <span style="color:#397ee7">.nbt</span> schematics.'
+        : 'Create a free account to download the <span style="color:#397ee7">.nbt</span> schematics.';
+      passEl.autocomplete = login ? 'current-password' : 'new-password';
+      forgotBtn.classList.toggle('hidden', !login);
+      clearMsg();
+    }
+
+    tabLogin.onclick  = () => setMode('login');
+    tabSignup.onclick = () => setMode('signup');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearMsg();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Working...';
+
+      const email = emailEl.value.trim();
+      const password = passEl.value;
+
+      const { data, error } =
+        mode === 'login' ? await signIn(email, password) : await signUp(email, password);
+
+      if (error) {
+        show(error.message, 'error');
+      } else if (mode === 'signup' && !data.session) {
+        // No session on signup means Supabase is waiting on email confirmation.
+        show('Account created. Check your email to confirm it, then log in.', 'ok');
+        setMode('login');
+      } else {
+        window.location.replace(next);
+        return;
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = mode === 'login' ? 'Log In' : 'Create Account';
+    });
+
+    forgotBtn.addEventListener('click', async () => {
+      const email = emailEl.value.trim();
+      if (!email) { show('Enter your email above first.', 'error'); return; }
+      clearMsg();
+      forgotBtn.disabled = true;
+      const { error } = await resetPassword(email);
+      show(
+        error ? error.message : 'If that email has an account, a reset link is on its way.',
+        error ? 'error' : 'ok'
+      );
+      forgotBtn.disabled = false;
+    });
+  </script>
+</body>
+</html>
