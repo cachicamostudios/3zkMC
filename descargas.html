@@ -120,6 +120,30 @@
       color: #fff;
       box-shadow: 8px 8px 0 #373737;
     }
+    /* Override Gumroad's injected button styling to keep the pixel look */
+    .schematic-card a.gumroad-button {
+      display: inline-block !important;
+      background: #b8fc26 !important;
+      color: #232323 !important;
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 1.04rem !important;
+      font-weight: bold !important;
+      padding: 11px 34px !important;
+      border: 2.5px solid #232323 !important;
+      border-radius: 8px !important;
+      box-shadow: 3px 3px 0 #c2a216 !important;
+      text-decoration: none !important;
+      margin-top: 9px !important;
+      letter-spacing: normal !important;
+      text-transform: none !important;
+      min-height: 0 !important;
+      line-height: normal !important;
+    }
+    .schematic-card a.gumroad-button:hover {
+      background: #c2a216 !important;
+      color: #fff !important;
+      box-shadow: 8px 8px 0 #373737 !important;
+    }
     .back-home {
       display: block;
       margin: 0 auto 30px auto;
@@ -196,7 +220,7 @@
         <img src="schematics/Andesite Block Farm 2.png" alt="Andesite Block Farm - Vista 2">
       </div>
       <h3>Andesite Block Farm</h3>
-      <a href="schematics/andesite_block_farm.nbt" download>Download .nbt</a>
+      <a class="gumroad-button" href="https://zkmcuser.gumroad.com/l/lzeul?wanted=true">Get schematic — free</a>
     </div>
 
     <!-- Create Mod Train Card -->
@@ -320,5 +344,8 @@
       if (e.key === 'Escape')     modal.style.display = 'none';
     });
   </script>
+
+  <!-- Gumroad overlay: opens checkout in a modal without leaving the page -->
+  <script src="https://gumroad.com/js/gumroad.js"></script>
 </body>
 </html>
