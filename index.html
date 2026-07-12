@@ -92,6 +92,21 @@
     nav a.nav-yt, nav a.nav-yt:hover { color: #ff0000; }   /* YouTube red */
     nav a.nav-tg, nav a.nav-tg:hover { color: #2aabee; }   /* Telegram light blue */
     nav a.nav-dc, nav a.nav-dc:hover { color: #5865f2; }   /* Discord blurple */
+    /* "My Collection" button -> Gumroad storefront */
+    nav a.nav-collection {
+      background: #b8fc26;
+      color: var(--black);
+      padding: 9px 20px;
+      border: 2.5px solid var(--black);
+      border-radius: 10px;
+      box-shadow: 3px 3px 0 var(--yellow-dark);
+      transition: background 0.17s, box-shadow 0.15s;
+    }
+    nav a.nav-collection:hover {
+      background: var(--yellow-dark);
+      color: var(--black);
+      box-shadow: 5px 5px 0 var(--black);
+    }
     .social-btns {
       margin: 18px 0 30px 0;
       display: flex;
@@ -339,6 +354,7 @@
       <a href="https://www.youtube.com/@3zkmc" target="_blank" class="nav-yt">YouTube</a>
       <a href="https://t.me/+HGBS43P5G34xNGFk" target="_blank" class="nav-tg">Telegram</a>
       <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank" class="nav-dc">Discord</a>
+      <a href="https://3zkmcuser.gumroad.com" target="_blank" rel="noopener" class="nav-collection">My Collection</a>
     </nav>
   </header>
 
