@@ -75,6 +75,22 @@ npm run build     # comprueba que compila
 git add -A && git commit -m "post: título" && git push
 ```
 
+## La newsletter sale del mismo post
+
+No hay que reescribir nada. Al publicar, el post genera solo su versión de
+email en **https://3zkmc.com/drafts** — asunto, cuerpo, enlace al post y, si
+lleva `schematic:`, el enlace de descarga. Botón de copiar y a pegar en
+[gumroad.com/emails](https://gumroad.com/emails).
+
+Esa página no la indexa Google (`noindex` + excluida en robots.txt).
+
+Si quieres que el email diga algo distinto de la `description`, añade al
+frontmatter:
+
+```yaml
+newsletterIntro: "El texto que quieres en el email, en vez de la description."
+```
+
 ## Ver en local mientras escribes
 
 ```bash

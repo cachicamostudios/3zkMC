@@ -11,6 +11,8 @@ const blog = defineCollection({
     description: z.string().optional(),
     draft: z.boolean().optional().default(false),
     schematic: z.string().url().optional(),
+    // Texto del email de la newsletter. Si se omite se usa description.
+    newsletterIntro: z.string().optional(),
   }),
 });
 
