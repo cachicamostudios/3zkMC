@@ -48,12 +48,32 @@ cwebp -q 85 imagen.png -o imagen.webp
 
 ## Publicar
 
+**Desde Obsidian** (plugin Obsidian Git, ya instalado y activado):
+
+1. Pon `draft: false`
+2. Paleta de comandos → **Git: Commit-and-sync** (o el botón de la barra lateral)
+
+Cloudflare Pages reconstruye solo. El post queda vivo y el RSS actualizado.
+
+Ajustes puestos, copiados de tu vault de cachicamo:
+
+- **Auto-commit cada 5 min** (`autoSaveInterval: 5`)
+- **Auto-push desactivado** (`autoPushInterval: 0`) → el push lo lanzas tú.
+  Es lo que hace que "publicar" sea una decisión y no un accidente.
+- Pull automático cada 10 min, y pull antes de push
+
+⚠️ **Ojo con el auto-commit:** este vault vive dentro del repo del sitio, así
+que el auto-commit cada 5 minutos barre **cualquier** cambio del repo, no solo
+tus notas — incluido código a medias. Si vas a tocar el sitio y el blog a la
+vez, pon `autoSaveInterval: 0` en los ajustes del plugin y commitea a mano
+desde el panel de Source Control.
+
+**Desde la terminal**, si lo prefieres:
+
 ```bash
 npm run build     # comprueba que compila
 git add -A && git commit -m "post: título" && git push
 ```
-
-Cloudflare Pages reconstruye solo. El post queda vivo y el RSS actualizado.
 
 ## Ver en local mientras escribes
 
