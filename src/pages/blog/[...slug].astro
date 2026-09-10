@@ -1,0 +1,41 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const canonical = new URL(`/blog/${post.id}/`, Astro.site).href;
+const fecha = post.data.date.toLocaleDateString('en-GB', {
+  day: 'numeric', month: 'long', year: 'numeric',
+});
+---
+<Base title={`${post.data.title} — 3zkMC`} description={post.data.description} canonical={canonical}>
+  <article class="wrap">
+    <p style="margin:38px 0 6px 0;">
+      <a href="/blog/" style="color:var(--lime);text-decoration:none;font-weight:bold;">&larr; All posts</a>
+    </p>
+    <h1 style="font-family:'Minecraftory','Press Start 2P',monospace;font-size:1.9rem;line-height:1.5;letter-spacing:1px;margin:0 0 10px 0;">
+      {post.data.title}
+    </h1>
+    <p style="opacity:.7;font-size:.92rem;margin:0 0 34px 0;">{fecha}</p>
+
+    <div class="prose"><Content /></div>
+
+    {post.data.schematic && (
+      <a class="cta" href={post.data.schematic} target="_blank" rel="noopener">
+        <b>Get this schematic &mdash; free &#9654;</b>
+        <span>Name your price, CHF 0 is fine. The <code>.nbt</code> is yours.</span>
+      </a>
+    )}
+
+    <a class="cta" href="/newsletter" style="background:var(--lime);box-shadow:9px 9px 0 var(--yellow-dark);">
+      <b>Get the next build in your inbox &#9654;</b>
+      <span>New schematics, build guides and Project Sphere updates. Free, no spam.</span>
+    </a>
+  </article>
+</Base>

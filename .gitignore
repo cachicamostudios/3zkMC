@@ -1,1 +1,10 @@
 .DS_Store
+
+node_modules/
+dist/
+.astro/
+
+# Obsidian: la config del vault sí se versiona (app.json),
+# pero el estado de la ventana cambia en cada sesión.
+**/.obsidian/workspace*.json
+**/.obsidian/cache
