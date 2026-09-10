@@ -2,7 +2,9 @@
 title: "The Red Baron flies, and here's what holds it up"
 date: 2026-09-10
 description: "A Create: Aeronautics build that actually stays in the air — what makes it fly, why the drivable version is a different machine, and how to not lose it over the ocean."
-draft: false
+draft: true   # ⚠️ EJEMPLO. El texto lo escribió Claude como prueba: los datos
+              # sobre esta build concreta NO están verificados. Revísalo o
+              # reescríbelo antes de poner draft: false.
 schematic: https://3zkmcuser.gumroad.com/l/zqqyth
 ---
 

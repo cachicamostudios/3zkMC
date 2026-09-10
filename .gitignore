@@ -8,3 +8,7 @@ dist/
 # pero el estado de la ventana cambia en cada sesión.
 **/.obsidian/workspace*.json
 **/.obsidian/cache
+
+# Material de trabajo que no se publica
+Logo 3zkMC 200x200.png
+Square format pic/
