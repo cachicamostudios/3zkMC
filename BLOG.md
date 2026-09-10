@@ -55,18 +55,18 @@ cwebp -q 85 imagen.png -o imagen.webp
 
 Cloudflare Pages reconstruye solo. El post queda vivo y el RSS actualizado.
 
-Ajustes puestos, copiados de tu vault de cachicamo:
+Ajustes del plugin:
 
-- **Auto-commit cada 5 min** (`autoSaveInterval: 5`)
-- **Auto-push desactivado** (`autoPushInterval: 0`) → el push lo lanzas tú.
-  Es lo que hace que "publicar" sea una decisión y no un accidente.
-- Pull automático cada 10 min, y pull antes de push
+- **Sin auto-commit** (`autoSaveInterval: 0`) — nada se commitea solo
+- **Sin auto-push** (`autoPushInterval: 0`)
+- **Pull al abrir el vault** (`autoPullOnBoot: true`)
 
-⚠️ **Ojo con el auto-commit:** este vault vive dentro del repo del sitio, así
-que el auto-commit cada 5 minutos barre **cualquier** cambio del repo, no solo
-tus notas — incluido código a medias. Si vas a tocar el sitio y el blog a la
-vez, pon `autoSaveInterval: 0` en los ajustes del plugin y commitea a mano
-desde el panel de Source Control.
+Es decir: **Commit-and-sync es la única forma de que algo salga**, y significa
+exactamente "publicar". Si no lo pulsas, no se mueve nada.
+
+Esto es distinto de tus otros vaults, donde hay auto-commit cada 5 minutos.
+El motivo: allí el vault es solo contenido, aquí comparte repo con el código
+del sitio, y un auto-commit se llevaría también el código a medio escribir.
 
 **Desde la terminal**, si lo prefieres:
 
