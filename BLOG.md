@@ -5,6 +5,15 @@ Obsidian con *Open folder as vault* apuntando a esa carpeta.
 
 ## Escribir un post
 
+**Con la plantilla** (lo más rápido): nota nueva → paleta de comandos
+(`Cmd+P`) → **Insertar plantilla** → `post`. Te rellena el frontmatter y la
+estructura, con instrucciones dentro que borras al terminar.
+
+La plantilla vive en `_templates/` dentro del vault. Esa carpeta está
+excluida del build, así que nunca se publica por accidente.
+
+**A mano**, si prefieres:
+
 1. Nota nueva en el vault. **El nombre del archivo es la URL**:
    `red-baron-plane.md` → `3zkmc.com/blog/red-baron-plane/`.
    Usa minúsculas y guiones, sin espacios ni acentos.
