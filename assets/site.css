@@ -1,0 +1,124 @@
+/* ------------------------------------------------------------------
+   3zkMC — base compartida
+   Primer paso de la migración: todo lo que hoy está duplicado inline
+   en index/descargas/factories/sphere vive aquí. Las páginas viejas
+   se van enganchando de una en una; newsletter.html ya la usa sola.
+   ------------------------------------------------------------------ */
+
+@font-face {
+  font-family: 'Minecraftory';
+  src: url('../fonts/Minecraftory.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root {
+  --yellow: #ffec40;
+  --yellow-dark: #c2a216;
+  --black: #232323;
+  --shadow: #373737;
+  --blue-sky: #7ecaff;
+  --bg-dark: #313233;
+  --bg-dark2: #2c2d2e;
+  --bg-solid: #3a3b3d;
+  --text-light: #e8e8e8;
+  --pvp-main: #ff6b35;
+  --pvp-dark: #c43d00;
+  --lime: #b8fc26;
+  --purple: #b98cf0;
+  --purple-dark: #6b3fa0;
+  --white: #fff;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  color: var(--text-light);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Fondo: la home lleva damero, las páginas secundarias gris sólido. */
+body.bg-checker {
+  background-color: var(--bg-dark);
+  background-image: conic-gradient(var(--bg-dark2) 25%, var(--bg-dark) 0 50%, var(--bg-dark2) 0 75%, var(--bg-dark) 0);
+  background-size: 80px 80px;
+}
+body.bg-solid { background: var(--bg-solid); }
+
+/* ---------- Header + nav ---------- */
+header {
+  padding: 22px 44px 22px 24px;
+  background: var(--yellow);
+  border-bottom: 7px solid var(--black);
+  box-shadow: 0 7px 0 var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 110px;
+  flex-wrap: wrap;
+}
+.logo-pixel {
+  font-family: 'Minecraftory', 'Press Start 2P', monospace;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  color: var(--black);
+  display: inline-block;
+}
+nav { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+nav a {
+  font-family: 'Minecraftory', 'Press Start 2P', monospace;
+  font-size: 1.05rem;
+  text-decoration: none;
+  color: var(--black);
+  transition: color 0.18s;
+}
+nav a:hover { color: var(--shadow); }
+nav a.nav-yt, nav a.nav-tg, nav a.nav-dc {
+  -webkit-text-stroke: 2.5px var(--black);
+  paint-order: stroke fill;
+  letter-spacing: 3px;
+}
+nav a.nav-yt, nav a.nav-yt:hover { color: #ff0000; }
+nav a.nav-tg, nav a.nav-tg:hover { color: #2aabee; }
+nav a.nav-dc, nav a.nav-dc:hover { color: #5865f2; }
+nav a.nav-collection {
+  background: var(--lime);
+  color: var(--black);
+  padding: 9px 20px;
+  border: 2.5px solid var(--black);
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 var(--yellow-dark);
+  transition: background 0.17s, box-shadow 0.15s;
+}
+nav a.nav-collection:hover {
+  background: var(--yellow-dark);
+  box-shadow: 5px 5px 0 var(--black);
+}
+
+.back-home {
+  font-family: 'Minecraftory', 'Press Start 2P', monospace;
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--black);
+}
+.back-home:hover { color: var(--shadow); }
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 20px 0 36px 0;
+  background: var(--yellow);
+  border-top: 5px solid var(--black);
+  text-align: center;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  color: var(--black);
+  box-shadow: 0 -5px 0 var(--yellow-dark);
+  margin-top: 60px;
+}
+.footer-links { margin-bottom: 10px; }
+.footer-links a {
+  color: var(--black);
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 4px;
+}
+.footer-links a:hover { color: var(--shadow); }
