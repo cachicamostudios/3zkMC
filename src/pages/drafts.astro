@@ -9,7 +9,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 const emails = posts.map((post) => {
-  const url = `https://3zkmc.com/blog/${post.id}/`;
+  const url = `https://3zkmc.com/blog/${post.id}`;
   const cuerpo = [
     post.data.newsletterIntro ?? post.data.description ?? '',
     '',

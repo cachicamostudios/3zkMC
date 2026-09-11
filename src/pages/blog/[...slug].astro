@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const canonical = new URL(`/blog/${post.id}/`, Astro.site).href;
+const canonical = new URL(`/blog/${post.id}`, Astro.site).href;
 const fecha = post.data.date.toLocaleDateString('en-GB', {
   day: 'numeric', month: 'long', year: 'numeric',
 });
@@ -17,7 +17,7 @@ const fecha = post.data.date.toLocaleDateString('en-GB', {
 <Base title={`${post.data.title} — 3zkMC`} description={post.data.description} canonical={canonical}>
   <article class="wrap">
     <p style="margin:38px 0 6px 0;">
-      <a href="/blog/" style="color:var(--lime);text-decoration:none;font-weight:bold;">&larr; All posts</a>
+      <a href="/blog" style="color:var(--lime);text-decoration:none;font-weight:bold;">&larr; All posts</a>
     </p>
     <h1 style="font-family:'Minecraftory','Press Start 2P',monospace;font-size:1.9rem;line-height:1.5;letter-spacing:1px;margin:0 0 10px 0;">
       {post.data.title}

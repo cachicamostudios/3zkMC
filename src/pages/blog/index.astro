@@ -5,7 +5,7 @@ import Base from '../../layouts/Base.astro';
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
-<Base title="Blog — 3zkMC" description="Build guides, Create Mod machines and Project Sphere updates from 3zkMC." canonical="https://3zkmc.com/blog/">
+<Base title="Blog — 3zkMC" description="Build guides, Create Mod machines and Project Sphere updates from 3zkMC." canonical="https://3zkmc.com/blog">
   <div class="wrap">
     <h1 style="font-family:'Minecraftory','Press Start 2P',monospace;font-size:2rem;line-height:1.5;letter-spacing:1px;margin:44px 0 8px 0;">Blog</h1>
     <p style="opacity:.85;line-height:1.7;margin:0 0 40px 0;">
@@ -17,7 +17,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
     <ul style="list-style:none;padding:0;margin:0;">
       {posts.map((post) => (
         <li style="margin-bottom:28px;padding-bottom:26px;border-bottom:2px solid #4a4b4d;">
-          <a href={`/blog/${post.id}/`} style="text-decoration:none;color:inherit;display:block;">
+          <a href={`/blog/${post.id}`} style="text-decoration:none;color:inherit;display:block;">
             <div style="font-family:'Minecraftory','Press Start 2P',monospace;font-size:1.2rem;line-height:1.5;color:var(--yellow);margin-bottom:8px;">
               {post.data.title}
             </div>

@@ -15,7 +15,7 @@ excluida del build, así que nunca se publica por accidente.
 **A mano**, si prefieres:
 
 1. Nota nueva en el vault. **El nombre del archivo es la URL**:
-   `red-baron-plane.md` → `3zkmc.com/blog/red-baron-plane/`.
+   `red-baron-plane.md` → `3zkmc.com/blog/red-baron-plane`.
    Usa minúsculas y guiones, sin espacios ni acentos.
 2. Rellena las Properties (el frontmatter):
 
