@@ -3,19 +3,19 @@
     "name": "Diamond Farm",
     "gumroad": "mgxtlt",
     "images": [
-      "diamond_farm_1.png",
-      "diamond_farm_2.png",
-      "diamond_farm_3.png",
-      "diamond_farm_4.png"
+      "diamond_farm_1.webp",
+      "diamond_farm_2.webp",
+      "diamond_farm_3.webp",
+      "diamond_farm_4.webp"
     ]
   },
   {
     "name": "XP Farm",
     "gumroad": "tgmhx",
     "images": [
-      "xp_farm_1.png",
-      "xp_farm_2.png",
-      "xp_farm_3.png"
+      "xp_farm_1.webp",
+      "xp_farm_2.webp",
+      "xp_farm_3.webp"
     ]
   },
   {
@@ -31,8 +31,8 @@
     "name": "Andesite Alloy Farm",
     "gumroad": "rafvhd",
     "images": [
-      "Andesite Alloy Farm 1.png",
-      "Andesite Alloy Farm 2.png"
+      "andesite_alloy_farm_1.webp",
+      "andesite_alloy_farm_2.webp"
     ]
   },
   {
@@ -47,8 +47,8 @@
     "name": "Andesite Block Farm",
     "gumroad": "lzeul",
     "images": [
-      "Andesite Block Farm 1.png",
-      "Andesite Block Farm 2.png"
+      "andesite_block_farm_1.webp",
+      "andesite_block_farm_2.webp"
     ]
   },
   {
@@ -63,10 +63,10 @@
     "name": "Create Mod Train",
     "gumroad": "jyxrid",
     "images": [
-      "Create Mod Train 1.png",
-      "Create Mod Train 2.png",
-      "Create Mod Train 3.png",
-      "Create Mod Train 4.png"
+      "create_mod_train_1.webp",
+      "create_mod_train_2.webp",
+      "create_mod_train_3.webp",
+      "create_mod_train_4.webp"
     ]
   },
   {
@@ -92,48 +92,48 @@
     "name": "Bigger Netherite Farm",
     "gumroad": "wkjlkg",
     "images": [
-      "Bigger_Netherite_Farm_1.png",
-      "Bigger_Netherite_Farm_2.png",
-      "Bigger_Netherite_Farm_3.png",
-      "Bigger_Netherite_Farm_4.png"
+      "bigger_netherite_farm_1.webp",
+      "bigger_netherite_farm_2.webp",
+      "bigger_netherite_farm_3.webp",
+      "bigger_netherite_farm_4.webp"
     ]
   },
   {
     "name": "Gold Farm",
     "gumroad": "kdnqv",
     "images": [
-      "Gold_Farm_1.png",
-      "Gold_Farm_2.png",
-      "Gold_Farm_3.png",
-      "Gold_Farm_4.png"
+      "gold_farm_1.webp",
+      "gold_farm_2.webp",
+      "gold_farm_3.webp",
+      "gold_farm_4.webp"
     ]
   },
   {
     "name": "Iron Farm",
     "gumroad": "fbmpfu",
     "images": [
-      "Iron_Farm_1.png",
-      "Iron_Farm_2.png",
-      "Iron_Farm_3.png",
-      "Iron_Farm_4.png"
+      "iron_farm_1.webp",
+      "iron_farm_2.webp",
+      "iron_farm_3.webp",
+      "iron_farm_4.webp"
     ]
   },
   {
     "name": "Netherite Farm",
     "gumroad": "yyevid",
     "images": [
-      "Netherite_Farm_1.png",
-      "Netherite_Farm_2.png",
-      "Netherite_Farm_3.png"
+      "netherite_farm_1.webp",
+      "netherite_farm_2.webp",
+      "netherite_farm_3.webp"
     ]
   },
   {
     "name": "Redstone Farm",
     "gumroad": "dnzwpz",
     "images": [
-      "Redstone_Farm_1.png",
-      "Redstone_Farm_2.png",
-      "Redstone_Farm_3.png"
+      "redstone_farm_1.webp",
+      "redstone_farm_2.webp",
+      "redstone_farm_3.webp"
     ]
   }
 ]
