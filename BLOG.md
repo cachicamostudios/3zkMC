@@ -111,3 +111,19 @@ npm run dev
 `useMarkdownLinks: true` (enlaces markdown estándar, no `[[wikilinks]]` — Astro
 no entiende los wikilinks) y la carpeta de adjuntos apuntando a `attachments/`.
 Están en `.obsidian/app.json` dentro del vault; no hay que tocarlos.
+
+## Otras cosas que se editan a menudo
+
+Desde la migración a Astro, el contenido que se repite vive en archivos de
+datos, no en HTML. Un cambio en un sitio se refleja en todas las páginas.
+
+| Qué | Dónde |
+|---|---|
+| Añadir o quitar un schematic | `src/data/schematics.json` — una entrada con `name`, el slug de Gumroad (`gumroad`) y las `images`. El orden del archivo es el de la página |
+| Imágenes de los schematics | `public/schematics/`, en webp (`cwebp -q 85`) |
+| Factories y sus descripciones | el array al principio de `src/pages/factories.astro`; imágenes en `public/create_machines/` |
+| Episodio actual de Project Sphere | `src/data/site.ts` — sale en la home y en `/sphere` |
+| Menú de arriba | `src/components/SiteHeader.astro` |
+| Pie de página | `src/components/SiteFooter.astro` |
+
+Todo se publica igual que un post: commit y push, y Cloudflare reconstruye.
