@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import Page from '../layouts/Page.astro';
 
 // Página de trabajo: por cada post publicado genera el email de la newsletter
 // ya redactado, listo para pegar en gumroad.com/emails. Así el post se
@@ -9,7 +10,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 const emails = posts.map((post) => {
-  const url = `https://3zkmc.com/blog/${post.id}/`;
+  const url = `https://3zkmc.com/blog/${post.id}`;
   const cuerpo = [
     post.data.newsletterIntro ?? post.data.description ?? '',
     '',
@@ -18,57 +19,16 @@ const emails = posts.map((post) => {
     '',
     '— 3zkMC',
   ].join('\n');
-  return { asunto: post.data.title, cuerpo, url, fecha: post.data.date };
+  return { asunto: post.data.title, cuerpo, fecha: post.data.date };
 });
 ---
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>Borradores de newsletter — 3zkMC</title>
-  <meta name="robots" content="noindex, nofollow" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|IBM+Plex+Mono:700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/site.css" />
-  <style is:global>
-    .wrap { max-width: 780px; margin: 0 auto; padding: 0 20px 60px 20px; }
-    h1 {
-      font-family: 'Minecraftory', 'Press Start 2P', monospace;
-      font-size: 1.6rem; line-height: 1.5; margin: 40px 0 8px 0; letter-spacing: 1px;
-    }
-    .intro { opacity: .85; line-height: 1.7; margin-bottom: 36px; }
-    .draft {
-      border: 3px solid var(--black); border-radius: 12px;
-      background: #2a2b2c; padding: 20px; margin-bottom: 26px;
-      box-shadow: 7px 7px 0 var(--lime);
-    }
-    .draft h2 {
-      font-family: 'Minecraftory', 'Press Start 2P', monospace;
-      font-size: .95rem; color: var(--yellow); line-height: 1.5; margin: 0 0 4px 0;
-    }
-    .meta { opacity: .6; font-size: .82rem; margin-bottom: 16px; }
-    .campo { font-size: .78rem; text-transform: uppercase; letter-spacing: 2px; opacity: .6; margin-bottom: 6px; }
-    pre {
-      background: #1e1f20; padding: 14px; border-radius: 8px; margin: 0 0 16px 0;
-      white-space: pre-wrap; word-break: break-word; font-size: .92rem; line-height: 1.65;
-      font-family: 'IBM Plex Mono', monospace;
-    }
-    button {
-      background: var(--lime); color: var(--black); border: 3px solid var(--black);
-      border-radius: 8px; padding: 11px 22px; font-family: 'IBM Plex Mono', monospace;
-      font-weight: bold; font-size: .95rem; cursor: pointer; box-shadow: 3px 3px 0 var(--yellow-dark);
-    }
-    button:hover { background: var(--yellow-dark); }
-    button.ok { background: var(--purple); box-shadow: 3px 3px 0 var(--purple-dark); }
-    .vacio { opacity: .7; line-height: 1.7; }
-  </style>
-</head>
-<body class="bg-solid">
+<Page title="Borradores de newsletter — 3zkMC" canonical="https://3zkmc.com/drafts" lang="es">
+  <meta slot="head" name="robots" content="noindex, nofollow" />
   <div class="wrap">
     <h1>Borradores de newsletter</h1>
     <p class="intro">
       Generado desde el vault. Copia y pega en
-      <a href="https://gumroad.com/emails" target="_blank" rel="noopener" style="color:var(--blue-sky);font-weight:bold;">gumroad.com/emails</a>,
+      <a href="https://gumroad.com/emails" target="_blank" rel="noopener">gumroad.com/emails</a>,
       elige la audiencia y envía. Se actualiza solo con cada post que publiques.
     </p>
 
@@ -91,26 +51,64 @@ const emails = posts.map((post) => {
       </div>
     ))}
   </div>
+</Page>
 
-  <script>
-    document.querySelectorAll('button[data-copiar]').forEach((b) => {
-      b.addEventListener('click', async () => {
-        const texto = b.getAttribute('data-copiar') ?? '';
-        try {
-          await navigator.clipboard.writeText(texto);
-        } catch {
-          // Sin permiso de portapapeles (http, o el navegador lo bloquea):
-          // seleccionamos el texto para que baste con Cmd+C.
-          const ta = document.createElement('textarea');
-          ta.value = texto; document.body.appendChild(ta); ta.select();
-          document.execCommand('copy'); ta.remove();
-        }
-        const antes = b.textContent;
-        b.textContent = '✓ Copiado';
-        b.classList.add('ok');
-        setTimeout(() => { b.textContent = antes; b.classList.remove('ok'); }, 1800);
-      });
+<style is:global>
+  body {
+    margin: 0; background: var(--bg-solid); color: var(--text-light);
+    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  }
+</style>
+
+<style>
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 20px 60px; }
+  h1 {
+    font-family: 'Minecraftory', 'Press Start 2P', monospace;
+    font-size: 1.6rem; line-height: 1.5; margin: 40px 0 8px; letter-spacing: 1px;
+  }
+  .intro { opacity: 0.85; line-height: 1.7; margin-bottom: 36px; }
+  .intro a { color: var(--blue-sky); font-weight: bold; }
+  .draft {
+    border: 3px solid var(--black); border-radius: 12px; background: #2a2b2c;
+    padding: 20px; margin-bottom: 26px; box-shadow: 7px 7px 0 var(--lime);
+  }
+  .draft h2 {
+    font-family: 'Minecraftory', 'Press Start 2P', monospace;
+    font-size: 0.95rem; color: var(--yellow); line-height: 1.5; margin: 0 0 4px;
+  }
+  .meta { opacity: 0.6; font-size: 0.82rem; margin-bottom: 16px; }
+  .campo { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; margin-bottom: 6px; }
+  pre {
+    background: #1e1f20; padding: 14px; border-radius: 8px; margin: 0 0 16px;
+    white-space: pre-wrap; word-break: break-word; font-size: 0.92rem; line-height: 1.65;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  button {
+    background: var(--lime); color: var(--black); border: 3px solid var(--black);
+    border-radius: 8px; padding: 11px 22px; font-family: 'IBM Plex Mono', monospace;
+    font-weight: bold; font-size: 0.95rem; cursor: pointer; box-shadow: 3px 3px 0 var(--yellow-dark);
+  }
+  button:hover { background: var(--yellow-dark); }
+  button.ok { background: var(--purple); box-shadow: 3px 3px 0 var(--purple-dark); }
+  .vacio { opacity: 0.7; line-height: 1.7; }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('button[data-copiar]').forEach((b) => {
+    b.addEventListener('click', async () => {
+      const texto = b.getAttribute('data-copiar') ?? '';
+      try {
+        await navigator.clipboard.writeText(texto);
+      } catch {
+        // Sin permiso de portapapeles: se copia por la vía antigua.
+        const ta = document.createElement('textarea');
+        ta.value = texto; document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); ta.remove();
+      }
+      const antes = b.textContent;
+      b.textContent = '✓ Copiado';
+      b.classList.add('ok');
+      setTimeout(() => { b.textContent = antes; b.classList.remove('ok'); }, 1800);
     });
-  </script>
-</body>
-</html>
+  });
+</script>

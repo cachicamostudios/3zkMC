@@ -1,0 +1,78 @@
+---
+// Visor a pantalla completa para las miniaturas (.mini-gallery img) de la
+// página: clic para abrir, flechas o teclado para navegar, Esc para cerrar.
+// Lo usan factories y descargas; antes cada una llevaba su propia copia.
+---
+<div id="image-modal">
+  <span id="close-modal">&times;</span>
+  <button class="modal-arrow" id="modal-prev" aria-label="Previous image">&#8592;</button>
+  <img id="modal-img" alt="Fullscreen view" />
+  <button class="modal-arrow" id="modal-next" aria-label="Next image">&#8594;</button>
+  <div id="modal-counter"></div>
+</div>
+
+<style>
+  #image-modal {
+    display: none;
+    position: fixed; z-index: 9999; left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(34, 34, 34, 0.92);
+    align-items: center; justify-content: center;
+  }
+  #modal-img {
+    max-width: 90vw; max-height: 86vh;
+    border: 7px solid #b8fc26;
+    box-shadow: 0 0 44px #000, 0 0 0 7px #232323;
+    background: #000;
+  }
+  #close-modal {
+    position: absolute; top: 40px; right: 60px; z-index: 10001;
+    font-size: 3.1rem; color: #fff; cursor: pointer; user-select: none;
+    font-family: 'Minecraftory', 'Press Start 2P', monospace;
+  }
+  .modal-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%); z-index: 10001;
+    font-size: 3rem; color: #fff; cursor: pointer; user-select: none;
+    background: rgba(0, 0, 0, 0.45); border: none; padding: 10px 18px; border-radius: 8px;
+    transition: background 0.15s;
+  }
+  .modal-arrow:hover { background: rgba(184, 252, 38, 0.7); color: #232323; }
+  #modal-prev { left: 24px; }
+  #modal-next { right: 24px; }
+  #modal-counter {
+    position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+    color: #fff; font-size: 0.75rem; opacity: 0.85; pointer-events: none;
+    font-family: 'Minecraftory', 'Press Start 2P', monospace;
+  }
+</style>
+
+<script>
+  const thumbs = Array.from(document.querySelectorAll<HTMLImageElement>('.mini-gallery img'));
+  const modal = document.getElementById('image-modal') as HTMLDivElement;
+  const modalImg = document.getElementById('modal-img') as HTMLImageElement;
+  const counter = document.getElementById('modal-counter') as HTMLDivElement;
+  let current = 0;
+
+  function open(i: number) {
+    current = (i + thumbs.length) % thumbs.length;
+    modalImg.src = thumbs[current].currentSrc || thumbs[current].src;
+    counter.textContent = `${current + 1} / ${thumbs.length}`;
+    modal.style.display = 'flex';
+  }
+  const close = () => { modal.style.display = 'none'; };
+
+  thumbs.forEach((img, i) => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => open(i));
+  });
+  document.getElementById('modal-prev')!.addEventListener('click', (e) => { e.stopPropagation(); open(current - 1); });
+  document.getElementById('modal-next')!.addEventListener('click', (e) => { e.stopPropagation(); open(current + 1); });
+  document.getElementById('close-modal')!.addEventListener('click', close);
+  modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (modal.style.display !== 'flex') return;
+    if (e.key === 'ArrowLeft') open(current - 1);
+    if (e.key === 'ArrowRight') open(current + 1);
+    if (e.key === 'Escape') close();
+  });
+</script>

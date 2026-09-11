@@ -1,0 +1,71 @@
+---
+// Esqueleto común de todas las páginas: el <head> con SEO, Open Graph,
+// Twitter, fuentes y RSS, más los colores del sitio como variables CSS.
+// Cada página aporta su título, descripción, canónica y sus estilos.
+export interface Props {
+  title: string;
+  description?: string;
+  canonical: string;
+  lang?: string;
+  ogType?: string;
+  bodyClass?: string;
+}
+const { title, description = '', canonical, lang = 'en', ogType = 'website', bodyClass } = Astro.props;
+const ogImage = 'https://3zkmc.com/favicon.png';
+---
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <title>{title}</title>
+  {description && <meta name="description" content={description} />}
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta property="og:title" content={title} />
+  {description && <meta property="og:description" content={description} />}
+  <meta property="og:url" content={canonical} />
+  <meta property="og:site_name" content="3zkMC" />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:type" content={ogType} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  {description && <meta name="twitter:description" content={description} />}
+  <meta name="twitter:image" content={ogImage} />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="msvalidate.01" content="9C3CFFDF04A52C3D19D5C21FBAC2E67A" />
+  <link rel="alternate" type="application/rss+xml" title="3zkMC" href="/rss.xml" />
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|IBM+Plex+Mono:700&display=swap" rel="stylesheet" />
+  <slot name="head" />
+</head>
+<body class={bodyClass}>
+  <slot />
+</body>
+</html>
+
+<style is:global>
+  /* Ruta absoluta a propósito: el CSS de las páginas Astro se empaqueta en
+     /_astro/, así que una url('fonts/…') relativa acabaría en /_astro/fonts/. */
+  @font-face {
+    font-family: 'Minecraftory';
+    src: url('/fonts/Minecraftory.ttf') format('truetype');
+    font-display: swap;
+  }
+  /* Colores del sitio, disponibles en todas las páginas. */
+  :root {
+    --yellow: #ffec40;
+    --yellow-dark: #c2a216;
+    --black: #232323;
+    --shadow: #373737;
+    --blue-sky: #7ecaff;
+    --bg-dark: #313233;
+    --bg-dark2: #2c2d2e;
+    --bg-solid: #3a3b3d;
+    --text-light: #e8e8e8;
+    --pvp-main: #ff6b35;
+    --pvp-dark: #c43d00;
+    --lime: #b8fc26;
+    --purple: #b98cf0;
+    --purple-dark: #6b3fa0;
+    --white: #fff;
+  }
+</style>

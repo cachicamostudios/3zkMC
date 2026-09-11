@@ -1,0 +1,45 @@
+---
+// Pie común amarillo. `current` quita el enlace a la página en la que ya
+// estás. Un solo sitio para cambiar los enlaces del pie de todo el sitio.
+export interface Props { current?: 'home' | 'blog' | 'schematics' | 'newsletter'; }
+const { current } = Astro.props;
+
+const enlaces = [
+  { id: 'home', label: 'Home', href: '/' },
+  { id: 'blog', label: 'Blog', href: '/blog' },
+  { id: 'schematics', label: 'Schematics', href: '/descargas' },
+  { id: 'newsletter', label: 'Newsletter', href: '/newsletter' },
+  { id: 'rss', label: 'RSS', href: '/rss.xml' },
+  { id: 'yt', label: 'YouTube', href: 'https://www.youtube.com/@3zkmc', externo: true },
+  { id: 'tg', label: 'Telegram', href: 'https://t.me/+HGBS43P5G34xNGFk', externo: true },
+  { id: 'dc', label: 'Discord', href: 'https://discord.gg/Hcuw2cqkdJ', externo: true },
+].filter((l) => l.id !== current);
+---
+<footer class="site-footer">
+  <div class="footer-links">
+    {enlaces.map((l, i) => (
+      <Fragment>
+        {i > 0 && ' • '}
+        <a href={l.href} {...(l.externo ? { target: '_blank', rel: 'noopener' } : {})}>{l.label}</a>
+      </Fragment>
+    ))}
+  </div>
+  <div><b>3zkMC</b> &copy; 2025 &bull; Crafted with GRIT &amp; Pixel Art</div>
+</footer>
+
+<style>
+  .site-footer {
+    display: block;
+    padding: 20px 0 36px;
+    margin-top: 60px;
+    background: #ffec40;
+    border-top: 5px solid #232323;
+    box-shadow: 0 -5px 0 #c2a216;
+    text-align: center;
+    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    color: #232323;
+  }
+  .footer-links { margin-bottom: 10px; }
+  .footer-links a { color: #232323; text-decoration: none; font-weight: bold; margin: 0 4px; }
+  .footer-links a:hover { color: #373737; }
+</style>

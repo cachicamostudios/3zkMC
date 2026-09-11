@@ -1,0 +1,70 @@
+---
+// Cabecera amarilla con navegación: la de la home, newsletter y el blog.
+// En la home (current="home") los enlaces internos son anclas a sus
+// secciones; en el resto, las páginas del sitio menos la actual.
+export interface Props { current?: 'home' | 'blog' | 'schematics' | 'newsletter'; }
+const { current } = Astro.props;
+
+const internos = current === 'home'
+  ? [
+      { label: 'Posts', href: '#posts' },
+      { label: 'Gallery', href: '#gallery' },
+      { label: 'About', href: '#about' },
+      { label: 'Contact', href: '#contact' },
+      { label: 'Blog', href: '/blog' },
+      { label: 'Newsletter', href: '/newsletter' },
+    ]
+  : [
+      { id: 'home', label: 'Home', href: '/' },
+      { id: 'blog', label: 'Blog', href: '/blog' },
+      { id: 'schematics', label: 'Schematics', href: '/descargas' },
+      { id: 'newsletter', label: 'Newsletter', href: '/newsletter' },
+    ].filter((l) => l.id !== current);
+---
+<header class="site-header">
+  <div class="logo-pixel">3zkMC</div>
+  <nav>
+    {internos.map((l) => <a href={l.href}>{l.label}</a>)}
+    <a href="https://www.youtube.com/@3zkmc" target="_blank" rel="noopener" class="nav-yt">YouTube</a>
+    <a href="https://t.me/+HGBS43P5G34xNGFk" target="_blank" rel="noopener" class="nav-tg">Telegram</a>
+    <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank" rel="noopener" class="nav-dc">Discord</a>
+    <a href="https://3zkmcuser.gumroad.com" target="_blank" rel="noopener" class="nav-collection">My Collection</a>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    padding: 22px 44px 22px 24px;
+    background: #ffec40;
+    border-bottom: 7px solid #232323;
+    box-shadow: 0 7px 0 #373737;
+    /* Hueco de 40px entre logo y menú, y 22px entre enlaces: con los 110 y
+       30 de antes, el menú no cabía junto al logo a 1280px y bajaba de fila. */
+    display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
+  }
+  .logo-pixel {
+    font-family: 'Minecraftory', 'Press Start 2P', monospace;
+    font-size: 2.2rem; letter-spacing: 1px; color: #232323; display: inline-block;
+  }
+  nav { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  nav a {
+    font-family: 'Minecraftory', 'Press Start 2P', monospace;
+    font-size: 1.05rem; text-decoration: none; color: #232323; transition: color 0.18s;
+  }
+  nav a:hover { color: #373737; }
+  nav a.nav-yt, nav a.nav-tg, nav a.nav-dc {
+    -webkit-text-stroke: 2.5px #232323; paint-order: stroke fill; letter-spacing: 3px;
+  }
+  nav a.nav-yt, nav a.nav-yt:hover { color: #ff0000; }
+  nav a.nav-tg, nav a.nav-tg:hover { color: #2aabee; }
+  nav a.nav-dc, nav a.nav-dc:hover { color: #5865f2; }
+  nav a.nav-collection {
+    background: #b8fc26; color: #232323; padding: 9px 20px;
+    border: 2.5px solid #232323; border-radius: 10px; box-shadow: 3px 3px 0 #c2a216;
+    transition: background 0.17s, box-shadow 0.15s;
+  }
+  nav a.nav-collection:hover { background: #c2a216; color: #232323; box-shadow: 5px 5px 0 #232323; }
+  @media (max-width: 600px) {
+    .site-header { gap: 24px; padding: 18px 20px; }
+  }
+</style>

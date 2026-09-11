@@ -1,0 +1,61 @@
+---
+import Page from '../layouts/Page.astro';
+import SubHeader from '../components/SubHeader.astro';
+import { sphereEpisode } from '../data/site';
+---
+<Page
+  title="Project Sphere – 3zkMC"
+  description="Project Sphere: el servidor PvP de 3zkMC en Minecraft. Próximamente."
+  canonical="https://3zkmc.com/sphere"
+>
+  <SubHeader theme="pvp" />
+
+  <div class="main">
+    <div class="wip-box">
+      <span class="wip-icon">🚧</span>
+      <h1 class="wip-title">Work in Progress</h1>
+      <p class="wip-text">
+        The Project Sphere gallery is coming soon.<br /><br />
+        We're busy building the biggest PvP arena in Minecraft — a massive sphere inspired by the Las Vegas Sphere, inside a 120-mod survival world.
+      </p>
+      <div class="wip-ep">Currently at Ep. {sphereEpisode} 🌐</div>
+    </div>
+  </div>
+
+  <footer class="sphere-footer">
+    <b>3zkMC</b> &copy; 2025 • Crafted with GRIT &amp; Pixel Art
+  </footer>
+</Page>
+
+<style is:global>
+  body {
+    margin: 0; background: #3a3b3d; font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    min-height: 100vh; display: flex; flex-direction: column;
+  }
+</style>
+
+<style>
+  .main {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 60px 20px;
+  }
+  .wip-box {
+    background: #ff6b35; border: 5px solid #232323; box-shadow: 12px 12px 0 #c43d00;
+    border-radius: 18px; padding: 48px 48px 40px; max-width: 560px; text-align: center;
+  }
+  .wip-icon { font-size: 4rem; margin-bottom: 16px; display: block; }
+  .wip-title {
+    font-family: 'Minecraftory', 'Press Start 2P', monospace;
+    font-size: 1.3rem; color: #fff; margin: 0 0 20px;
+  }
+  .wip-text { color: #fff; font-size: 1.05rem; line-height: 1.7; margin: 0; }
+  .wip-ep {
+    display: inline-block; margin-top: 24px; background: #232323; color: #ff6b35;
+    font-family: 'Minecraftory', 'Press Start 2P', monospace; font-size: 0.85rem;
+    padding: 10px 22px; border: 2px solid #ff6b35; border-radius: 8px; box-shadow: 3px 3px 0 #c43d00;
+  }
+  .sphere-footer {
+    padding: 20px 0 30px; background: #c43d00; border-top: 4px solid #232323;
+    text-align: center; color: #fff; font-size: 0.88rem;
+  }
+</style>
