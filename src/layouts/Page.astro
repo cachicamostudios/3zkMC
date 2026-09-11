@@ -1,0 +1,53 @@
+---
+// Esqueleto común de todas las páginas: el <head> con SEO, Open Graph,
+// Twitter, fuentes y RSS. Cada página aporta su título, descripción, canónica
+// y sus propios estilos; aquí no hay nada visual salvo la fuente Minecraftory.
+export interface Props {
+  title: string;
+  description?: string;
+  canonical: string;
+  lang?: string;
+  ogType?: string;
+  bodyClass?: string;
+}
+const { title, description = '', canonical, lang = 'en', ogType = 'website', bodyClass } = Astro.props;
+const ogImage = 'https://3zkmc.com/favicon.png';
+---
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <title>{title}</title>
+  {description && <meta name="description" content={description} />}
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta property="og:title" content={title} />
+  {description && <meta property="og:description" content={description} />}
+  <meta property="og:url" content={canonical} />
+  <meta property="og:site_name" content="3zkMC" />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:type" content={ogType} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  {description && <meta name="twitter:description" content={description} />}
+  <meta name="twitter:image" content={ogImage} />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="msvalidate.01" content="9C3CFFDF04A52C3D19D5C21FBAC2E67A" />
+  <link rel="alternate" type="application/rss+xml" title="3zkMC" href="/rss.xml" />
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|IBM+Plex+Mono:700&display=swap" rel="stylesheet" />
+  <slot name="head" />
+</head>
+<body class={bodyClass}>
+  <slot />
+</body>
+</html>
+
+<style is:global>
+  /* Ruta absoluta a propósito: el CSS de las páginas Astro se empaqueta en
+     /_astro/, así que una url('fonts/…') relativa acabaría en /_astro/fonts/. */
+  @font-face {
+    font-family: 'Minecraftory';
+    src: url('/fonts/Minecraftory.ttf') format('truetype');
+    font-display: swap;
+  }
+</style>

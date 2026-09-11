@@ -1,0 +1,106 @@
+---
+import Page from '../layouts/Page.astro';
+import SubHeader from '../components/SubHeader.astro';
+import GalleryModal from '../components/GalleryModal.astro';
+
+// Una entrada por fábrica. Añadir una nueva es añadir un objeto aquí; las
+// imágenes viven en public/create_machines/. `desc` sale bajo las miniaturas.
+const factories = [
+  {
+    name: 'All Ores Factory',
+    desc: '',
+    images: ['All_Ores_Farm_1.png', 'All_Ores_Farm_3.png', 'All_Ores_Farm_4.png', 'All_Ores_Farm_5.png'],
+  },
+  {
+    name: 'Chocolate Factory',
+    desc: '',
+    images: [
+      'Chocolate_Factory_1.png', 'Chocolate_Factory_2.png', 'Chocolate_Factory_3.png',
+      'Chocolate_Factory_4.png', 'Chocolate_Factory_5.png', 'Chocolate_Factory_6.png',
+    ],
+  },
+  {
+    name: 'Honey Factory',
+    desc: '',
+    images: ['Honey_Factory_1.png', 'Honey_Factory_2.png'],
+  },
+  {
+    name: 'Netherite Factory',
+    desc: '',
+    images: [
+      'Netherite Factory (1).png', 'Netherite Factory (2).png', 'Netherite Factory (3).png',
+      'Netherite Factory (4).png', 'Netherite Factory (5).png',
+    ],
+  },
+];
+
+// Los nombres con espacios y paréntesis se codifican aquí, en el build.
+// La versión HTML lo hacía en el navegador con JavaScript.
+const src = (file: string) => `/create_machines/${encodeURI(file)}`;
+---
+<Page
+  title="Create Mod Factories – 3zkMC"
+  description="Galería de factories del Create Mod en 3zkMC. Máquinas automáticas, fábricas de recursos y builds industriales en Minecraft."
+  canonical="https://3zkmc.com/factories"
+>
+  <SubHeader theme="lime" />
+
+  <h1>Create Mod Factories</h1>
+  <p class="subtitle">Click any thumbnail to open it fullscreen.</p>
+
+  <div class="cards">
+    {factories.map((f) => (
+      <div class="card">
+        <h3>{f.name}</h3>
+        <div class="mini-gallery">
+          {f.images.map((file, i) => (
+            <img src={src(file)} alt={`${f.name} — ${i + 1}`} loading="lazy" decoding="async" />
+          ))}
+        </div>
+        <p class="desc">{f.desc}</p>
+      </div>
+    ))}
+  </div>
+
+  <GalleryModal />
+</Page>
+
+<style is:global>
+  body { margin: 0; background: #3a3b3d; font-family: 'IBM Plex Mono', 'Courier New', monospace; }
+</style>
+
+<style>
+  h1 {
+    font-family: 'Minecraftory', 'Press Start 2P', monospace;
+    text-align: center; font-size: 1.22rem; color: #e8e8e8;
+    margin: 28px 0 18px;
+  }
+  .subtitle { text-align: center; margin: 0 0 28px; opacity: 0.9; color: #e8e8e8; }
+  .cards {
+    display: flex; flex-wrap: wrap; gap: 34px; justify-content: center;
+    margin: 0 auto 70px; max-width: 1240px;
+  }
+  .card {
+    background: #fff; border: 3.5px solid #232323; box-shadow: 9px 9px 0 #b8fc26;
+    border-radius: 16px; padding: 18px 18px 22px; width: 330px;
+    transition: box-shadow 0.15s, transform 0.13s;
+  }
+  .card:hover { box-shadow: 13px 13px 0 #373737; transform: scale(1.03) rotate(-1deg); }
+  .card h3 {
+    font-family: 'Minecraftory', 'Press Start 2P', monospace;
+    font-size: 1.05rem; color: #232323; margin: 6px 0 10px; letter-spacing: 1px;
+  }
+  .mini-gallery {
+    display: flex; gap: 10px; overflow-x: auto; margin-bottom: 14px;
+    justify-content: flex-start; padding-bottom: 4px;
+  }
+  .mini-gallery img {
+    width: 96px; height: 96px; border-radius: 7px; object-fit: cover;
+    border: 2px solid #b8fc26; background: #eee; box-shadow: 2px 2px 0 #c2a216;
+  }
+  .desc { font-size: 0.96rem; color: #232323; min-height: 1.2em; }
+  @media (max-width: 700px) {
+    .card { width: 98vw; }
+    .mini-gallery img { width: 28vw; height: 28vw; max-width: 110px; }
+  }
+</style>
