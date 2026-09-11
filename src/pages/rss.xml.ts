@@ -10,6 +10,8 @@ export async function GET(context: APIContext) {
     title: '3zkMC',
     description: 'Create Mod builds, schematics and Project Sphere updates.',
     site: context.site!,
+    // Sin barra final, igual que la canónica y el sitemap (build.format 'file').
+    trailingSlash: false,
     items: posts.map((post) => ({
       title: post.data.title,
       description: post.data.description ?? '',
