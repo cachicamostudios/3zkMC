@@ -1,0 +1,15 @@
+# Los .nbt se servían directamente desde la web y se saltaban Gumroad (y con
+# él la captura de email). Ahora cualquier enlace antiguo acaba en su producto.
+/schematics/andesite_alloy_farm.nbt https://3zkmcuser.gumroad.com/l/rafvhd 301
+/schematics/andesite_alloy_farm_v2.nbt https://3zkmcuser.gumroad.com/l/znpunne 301
+/schematics/andesite_block_farm.nbt https://3zkmcuser.gumroad.com/l/lzeul 301
+/schematics/andesite_block_farm_v2.nbt https://3zkmcuser.gumroad.com/l/lexox 301
+/schematics/bigger_netherite_farm.nbt https://3zkmcuser.gumroad.com/l/wkjlkg 301
+/schematics/create_mod_train.nbt https://3zkmcuser.gumroad.com/l/jyxrid 301
+/schematics/diamond_farm.nbt https://3zkmcuser.gumroad.com/l/mgxtlt 301
+/schematics/gold_farm.nbt https://3zkmcuser.gumroad.com/l/kdnqv 301
+/schematics/iron_farm.nbt https://3zkmcuser.gumroad.com/l/fbmpfu 301
+/schematics/netherite_farm.nbt https://3zkmcuser.gumroad.com/l/yyevid 301
+/schematics/redstone_farm.nbt https://3zkmcuser.gumroad.com/l/dnzwpz 301
+/schematics/ultimate_xp_farm.nbt https://3zkmcuser.gumroad.com/l/ibxqxu 301
+/schematics/xp_farm.nbt https://3zkmcuser.gumroad.com/l/tgmhx 301
