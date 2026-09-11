@@ -38,13 +38,15 @@ const internos = current === 'home'
     background: #ffec40;
     border-bottom: 7px solid #232323;
     box-shadow: 0 7px 0 #373737;
-    display: flex; align-items: center; gap: 110px; flex-wrap: wrap;
+    /* Hueco de 40px entre logo y menú, y 22px entre enlaces: con los 110 y
+       30 de antes, el menú no cabía junto al logo a 1280px y bajaba de fila. */
+    display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
   }
   .logo-pixel {
     font-family: 'Minecraftory', 'Press Start 2P', monospace;
     font-size: 2.2rem; letter-spacing: 1px; color: #232323; display: inline-block;
   }
-  nav { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+  nav { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
   nav a {
     font-family: 'Minecraftory', 'Press Start 2P', monospace;
     font-size: 1.05rem; text-decoration: none; color: #232323; transition: color 0.18s;
