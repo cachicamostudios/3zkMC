@@ -1,38 +1,30 @@
 ---
+import Page from './Page.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+// Layout del blog: el esqueleto común más la cabecera y el pie del sitio.
 export interface Props {
   title: string;
   description?: string;
   canonical: string;
 }
-const { title, description = '', canonical } = Astro.props;
+const { title, description, canonical } = Astro.props;
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>{title}</title>
-  {description && <meta name="description" content={description} />}
-  <link rel="canonical" href={canonical} />
-  <link rel="icon" type="image/png" href="/favicon.png" />
-  <meta property="og:title" content={title} />
-  {description && <meta property="og:description" content={description} />}
-  <meta property="og:url" content={canonical} />
-  <meta property="og:site_name" content="3zkMC" />
-  <meta property="og:image" content="https://3zkmc.com/favicon.png" />
-  <meta property="og:type" content="article" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  {description && <meta name="twitter:description" content={description} />}
-  <meta name="twitter:image" content="https://3zkmc.com/favicon.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="alternate" type="application/rss+xml" title="3zkMC" href="/rss.xml" />
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|IBM+Plex+Mono:700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/site.css" />
-  <!-- is:global porque el HTML de <Content /> (markdown) y los .cta de las
-       paginas hijas no llevan el data-attribute de ambito de este componente,
-       asi que un <style> normal no les aplicaria. Todo va namespaced bajo
-       .wrap / .prose / .cta para que no se escape a nada mas. -->
-  <style is:global>
+<Page title={title} description={description} canonical={canonical} ogType="article">
+  <SiteHeader current="blog" />
+  <slot />
+  <SiteFooter current="blog" />
+</Page>
+
+<!-- is:global porque el HTML de <Content /> (markdown) y los .cta de las
+     paginas hijas no llevan el atributo de ambito de este componente, asi
+     que un <style> normal no les aplicaria. Todo va bajo .wrap/.prose/.cta. -->
+<style is:global>
+  body {
+    margin: 0; background: var(--bg-solid); color: var(--text-light);
+    font-family: 'IBM Plex Mono', 'Courier New', monospace; min-height: 100vh;
+  }
     .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
     .prose { font-size: 1.04rem; line-height: 1.8; }
     .prose h2, .prose h3 {
@@ -97,35 +89,6 @@ const { title, description = '', canonical } = Astro.props;
       line-height: 1.5;
     }
     @media (max-width: 600px) {
-      header { gap: 24px; padding: 18px 20px; }
       .prose h2 { font-size: 1.1rem; }
     }
   </style>
-</head>
-<body class="bg-solid">
-  <header>
-    <div class="logo-pixel">3zkMC</div>
-    <nav>
-      <a href="/index.html">Home</a>
-      <a href="/blog">Blog</a>
-      <a href="/descargas.html">Schematics</a>
-      <a href="/newsletter.html">Newsletter</a>
-      <a href="https://www.youtube.com/@3zkmc" target="_blank" rel="noopener" class="nav-yt">YouTube</a>
-      <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank" rel="noopener" class="nav-dc">Discord</a>
-    </nav>
-  </header>
-
-  <slot />
-
-  <footer>
-    <div class="footer-links">
-      <a href="/index.html">Home</a> &bull;
-      <a href="/blog">Blog</a> &bull;
-      <a href="/descargas.html">Schematics</a> &bull;
-      <a href="/newsletter.html">Newsletter</a> &bull;
-      <a href="/rss.xml">RSS</a>
-    </div>
-    <div><b>3zkMC</b> &copy; 2025 &bull; Crafted with GRIT &amp; Pixel Art</div>
-  </footer>
-</body>
-</html>

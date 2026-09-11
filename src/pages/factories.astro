@@ -100,7 +100,8 @@ const src = (file: string) => `/create_machines/${encodeURI(file)}`;
   }
   .desc { font-size: 0.96rem; color: #232323; min-height: 1.2em; }
   @media (max-width: 700px) {
-    .card { width: 98vw; }
+    /* border-box: si no, 98vw + padding + borde se sale de la pantalla */
+    .card { width: 98vw; box-sizing: border-box; }
     .mini-gallery img { width: 28vw; height: 28vw; max-width: 110px; }
   }
 </style>

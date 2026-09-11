@@ -7,14 +7,14 @@ const { theme = 'lime' } = Astro.props;
 <header class:list={['subheader', theme]}>
   <div class="logo-pixel">3zkMC</div>
   <div class="back-wrap">
-    <a class="back-home" href="/index.html">&larr; Back Home</a>
+    <a class="back-home" href="/">&larr; Back Home</a>
   </div>
 </header>
 
 <style>
-  /* Todo explícito: assets/site.css tiene reglas globales sobre <header>
-     (flex en fila, gap, fondo amarillo) pensadas para la home. Si esta
-     cabecera heredara alguna, el logo y el botón se pondrían en fila. */
+  /* Todo explícito a propósito: esta cabecera va apilada y centrada, y en
+     su día heredó de un CSS global un display:flex que puso el logo y el
+     botón en fila en producción. */
   .subheader {
     display: block;
     gap: 0;

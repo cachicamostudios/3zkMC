@@ -1,7 +1,7 @@
 ---
 // Esqueleto común de todas las páginas: el <head> con SEO, Open Graph,
-// Twitter, fuentes y RSS. Cada página aporta su título, descripción, canónica
-// y sus propios estilos; aquí no hay nada visual salvo la fuente Minecraftory.
+// Twitter, fuentes y RSS, más los colores del sitio como variables CSS.
+// Cada página aporta su título, descripción, canónica y sus estilos.
 export interface Props {
   title: string;
   description?: string;
@@ -49,5 +49,23 @@ const ogImage = 'https://3zkmc.com/favicon.png';
     font-family: 'Minecraftory';
     src: url('/fonts/Minecraftory.ttf') format('truetype');
     font-display: swap;
+  }
+  /* Colores del sitio, disponibles en todas las páginas. */
+  :root {
+    --yellow: #ffec40;
+    --yellow-dark: #c2a216;
+    --black: #232323;
+    --shadow: #373737;
+    --blue-sky: #7ecaff;
+    --bg-dark: #313233;
+    --bg-dark2: #2c2d2e;
+    --bg-solid: #3a3b3d;
+    --text-light: #e8e8e8;
+    --pvp-main: #ff6b35;
+    --pvp-dark: #c43d00;
+    --lime: #b8fc26;
+    --purple: #b98cf0;
+    --purple-dark: #6b3fa0;
+    --white: #fff;
   }
 </style>

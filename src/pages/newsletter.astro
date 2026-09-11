@@ -1,0 +1,97 @@
+---
+import Page from '../layouts/Page.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const subscribeUrl = 'https://3zkmcuser.gumroad.com/subscribe';
+---
+<Page
+  title="Newsletter — 3zkMC"
+  description="Join the 3zkMC newsletter: new Create Mod schematics, build guides and Project Sphere updates, straight to your inbox. Free, no spam."
+  canonical="https://3zkmc.com/newsletter"
+>
+  <SiteHeader current="newsletter" />
+
+  <h1>The 3zkMC Newsletter</h1>
+  <p class="lead">
+    You already downloaded the schematics. This is where I tell you what I'm building next —
+    and hand you the file before it shows up anywhere else.
+  </p>
+
+  <div class="signup-card">
+    <h2>What lands in your inbox</h2>
+    <ul class="perks">
+      <li><span>&#9881;</span> <b>New schematics first.</b> Every new Create Mod build, the moment the <code>.nbt</code> is ready.</li>
+      <li><span>&#128220;</span> <b>Build guides.</b> How the machine actually works, what mods it needs, and how to not blow it up on import.</li>
+      <li><span>&#9876;</span> <b>Project Sphere.</b> Arena updates, event dates, and when the next PvP stream goes live.</li>
+    </ul>
+    <a class="subscribe-btn" href={subscribeUrl} target="_blank" rel="noopener">Subscribe — free &#9654;</a>
+    <p class="fineprint">
+      A few emails a month, only when there's something new to build.<br />
+      No spam, no reselling your address, unsubscribe in one click.
+    </p>
+  </div>
+
+  <p class="elsewhere">
+    Prefer to hang out instead? The builds also get posted on
+    <a href="https://www.youtube.com/@3zkmc" target="_blank" rel="noopener">YouTube</a>,
+    <a href="https://t.me/+HGBS43P5G34xNGFk" target="_blank" rel="noopener">Telegram</a> and
+    <a href="https://discord.gg/Hcuw2cqkdJ" target="_blank" rel="noopener">Discord</a>.
+  </p>
+
+  <SiteFooter current="newsletter" />
+</Page>
+
+<style is:global>
+  body {
+    margin: 0; background: var(--bg-solid); color: var(--text-light);
+    font-family: 'IBM Plex Mono', 'Courier New', monospace; min-height: 100vh;
+  }
+</style>
+
+<style>
+  h1 {
+    font-family: 'Minecraftory', 'Press Start 2P', monospace;
+    font-size: 2rem; text-align: center; color: var(--text-light);
+    margin: 46px 20px 10px; letter-spacing: 1px; line-height: 1.5;
+  }
+  .lead {
+    text-align: center; max-width: 640px; margin: 0 auto 40px; padding: 0 20px;
+    font-size: 1.05rem; line-height: 1.7; opacity: 0.92;
+  }
+  .signup-card {
+    box-sizing: border-box; background: var(--purple); color: var(--black);
+    border: 4px solid var(--black); box-shadow: 11px 11px 0 var(--purple-dark);
+    border-radius: 16px; max-width: 660px; margin: 0 auto; padding: 34px 30px 38px;
+  }
+  .signup-card h2 {
+    font-family: 'Minecraftory', 'Press Start 2P', monospace;
+    font-size: 1.3rem; margin: 0 0 22px; letter-spacing: 1px; line-height: 1.5;
+  }
+  .perks { list-style: none; padding: 0; margin: 0 0 28px; }
+  .perks li {
+    font-size: 1.02rem; line-height: 1.6; margin-bottom: 14px;
+    padding-left: 34px; position: relative; font-weight: bold;
+  }
+  .perks li span { position: absolute; left: 0; top: 0; font-size: 1.2em; }
+  .subscribe-btn {
+    display: block; text-align: center; background: var(--black); color: var(--purple);
+    font-family: 'Minecraftory', 'Press Start 2P', monospace; font-size: 1.1rem;
+    text-decoration: none; padding: 18px 28px; border: 3px solid var(--black);
+    border-radius: 10px; box-shadow: 6px 6px 0 var(--purple-dark); letter-spacing: 1px;
+    transition: transform 0.13s, box-shadow 0.15s;
+  }
+  .subscribe-btn:hover { transform: translate(-2px, -2px); box-shadow: 9px 9px 0 var(--purple-dark); }
+  .fineprint { text-align: center; font-size: 0.88rem; margin: 18px 0 0; opacity: 0.8; line-height: 1.6; }
+  .elsewhere {
+    text-align: center; max-width: 660px; margin: 46px auto 0; padding: 0 20px;
+    font-size: 0.98rem; line-height: 1.8; opacity: 0.9;
+  }
+  .elsewhere a { color: var(--blue-sky); font-weight: bold; }
+  @media (max-width: 600px) {
+    h1 { font-size: 1.4rem; }
+    .signup-card { margin: 0 16px; padding: 26px 20px 30px; box-shadow: 8px 8px 0 var(--purple-dark); }
+    .signup-card h2 { font-size: 1.05rem; }
+    .subscribe-btn { font-size: 0.92rem; padding: 16px 18px; }
+  }
+</style>

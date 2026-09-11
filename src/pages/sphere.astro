@@ -1,9 +1,7 @@
 ---
 import Page from '../layouts/Page.astro';
 import SubHeader from '../components/SubHeader.astro';
-
-// Cambia este número con cada episodio nuevo de la serie.
-const episodio = 24;
+import { sphereEpisode } from '../data/site';
 ---
 <Page
   title="Project Sphere – 3zkMC"
@@ -20,7 +18,7 @@ const episodio = 24;
         The Project Sphere gallery is coming soon.<br /><br />
         We're busy building the biggest PvP arena in Minecraft — a massive sphere inspired by the Las Vegas Sphere, inside a 120-mod survival world.
       </p>
-      <div class="wip-ep">Currently at Ep. {episodio} 🌐</div>
+      <div class="wip-ep">Currently at Ep. {sphereEpisode} 🌐</div>
     </div>
   </div>
 
