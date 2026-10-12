@@ -135,5 +135,24 @@
       "redstone_farm_2.webp",
       "redstone_farm_3.webp"
     ]
+  },
+  {
+    "name": "Blaze Cake Farm V2 (S)",
+    "gumroad": "fdzkgf",
+    "images": [
+      "blaze_cake_farm_v2_s_1.webp",
+      "blaze_cake_farm_v2_s_2.webp",
+      "blaze_cake_farm_v2_s_3.webp",
+      "blaze_cake_farm_v2_s_4.webp"
+    ]
+  },
+  {
+    "name": "Blaze Cake Farm V2 (NS)",
+    "gumroad": "qbmtci",
+    "images": [
+      "blaze_cake_farm_v2_ns_1.webp",
+      "blaze_cake_farm_v2_ns_2.webp",
+      "blaze_cake_farm_v2_ns_3.webp"
+    ]
   }
 ]
